@@ -1,0 +1,20 @@
+# Netlify local
+.netlify
+
+# Sistema
+.DS_Store
+
+# Arquivos de processo — ficam apenas local, nunca em produção
+briefing.md
+copy.md
+layout.md
+persona.md
+pesquisa-mercado.md
+tom-de-voz.md
+referencias/
+
+# Fontes licenciadas e material bruto
+*.ttf
+*.otf
+_tmp-*
+vsl-original.mp4

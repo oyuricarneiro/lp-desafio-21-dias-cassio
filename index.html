@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Desafio 21 Dias | Dr. Cássio Siqueira, médico</title>
+<meta name="description" content="Os primeiros 21 dias do seu processo de emagrecimento, organizados por um médico. Uma tarefa por dia, simples e executável. R$ 47.">
+
+<!-- REMOVER junto com a entrada do checkout da Eduzz.
+     Enquanto os CTAs apontam para #checkout, a página não pode ser indexada:
+     é uma página de vendas em que ninguém consegue comprar. -->
+<meta name="robots" content="noindex, nofollow">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="/style.css?v=9">
+<link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+</head>
+<body>
+
+<!-- ============ SEÇÃO 1: HERO ============ -->
+<!-- Arquétipo: Split Assimétrico · Constraints: Imagem com Gradiente (mídia) + Nested Frames (layout) + Gradiente Linear (cor) -->
+<header class="hero">
+
+  <div class="hero__bar">
+    <img class="hero__logo" src="/.netlify/images?url=/images/logo-cassio.png&w=200&q=90" alt="Dr. Cássio Siqueira" width="60" height="72" loading="eager" decoding="async">
+    <span class="hero__crm">Médico · CRM SP 233647</span>
+  </div>
+
+  <div class="hero__grid">
+
+    <!-- No mobile este bloco vem primeiro por ordem no DOM: headline + CTA antes da mídia -->
+    <div class="hero__text">
+      <p class="eyebrow">Desafio 21 Dias</p>
+
+      <h1 class="hero__title">
+        Você recomeça toda segunda <span>e desiste toda sexta</span>
+      </h1>
+
+      <p class="hero__sub">
+        Os primeiros 21 dias do seu processo de emagrecimento, organizados por um médico.
+        Uma tarefa por dia, simples e executável. Sem cardápio de sofrimento e sem promessa de milagre.
+      </p>
+
+      <a class="btn" href="#checkout">Quero começar hoje</a>
+
+      <p class="hero__micro">
+        <strong>R$ 47</strong>, pagamento único. Você faz a primeira tarefa ainda hoje.
+      </p>
+
+      <p class="hero__cred">
+        Dr. Cássio Siqueira, médico. CRM SP 233647.<br>
+        Atendimento presencial e online para todo o Brasil.
+      </p>
+    </div>
+
+    <!-- VSL: vídeo do desafio, 42s, 9:16 vertical. Facade: o player só é
+         injetado no clique, então o mp4 não pesa no carregamento inicial. -->
+    <div class="hero__media">
+      <div class="vsl">
+        <button class="vsl__frame" type="button"
+                data-video="/video/vsl-desafio-21-dias.mp4"
+                aria-label="Assistir o vídeo de 42 segundos do Dr. Cássio sobre o Desafio 21 Dias">
+          <img class="vsl__poster" src="/.netlify/images?url=/images/poster-vsl.jpg&w=640&q=82" alt="Dr. Cássio Siqueira" width="640" height="1138" loading="eager" decoding="async" fetchpriority="high">
+          <span class="vsl__play" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="26" height="26"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg>
+          </span>
+          <span class="vsl__label">42 segundos <span aria-hidden="true">·</span> o Dr. Cássio explica o desafio</span>
+        </button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ============ SEÇÃO 2: FAIXA DE CREDIBILIDADE ============ -->
+  <div class="credband">
+    <div class="credband__item">
+      <strong>Médico, não coach</strong>
+      <span>CRM SP 233647.</span>
+    </div>
+    <div class="credband__item">
+      <strong>Sem grupo lotando o seu celular</strong>
+      <span>Você faz no seu ritmo, no seu horário.</span>
+    </div>
+    <div class="credband__item">
+      <strong>Uma tarefa por dia</strong>
+      <span>Algumas levam 15 minutos. Outras são só uma decisão.</span>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- ============ SEÇÃO 3: POR QUE VOCÊ TRAVA ============ -->
+<!-- Arquétipo: Editorial · Constraints: Bleed Left (layout) + Stagger (movimento) + Selective Color (cor) -->
+<section class="why">
+  <div class="why__inner">
+
+    <header class="why__head">
+      <h2 data-aos="fade-up">Seu corpo não travou por falta de esforço</h2>
+      <p class="why__sub" data-aos="fade-up" data-aos-delay="80">
+        Travou porque ninguém investigou o que está acontecendo por dentro.
+      </p>
+      <p class="why__lead" data-aos="fade-up" data-aos-delay="140">
+        Deixa eu te explicar direito, porque esse ciclo tem uma lógica e ela não é sobre você ser fraca.
+      </p>
+    </header>
+
+    <ol class="cycle">
+      <li class="cycle__step" data-aos="fade-up">
+        <span class="cycle__num">I</span>
+        <div class="cycle__body">
+          <h3>Você corta a comida drasticamente</h3>
+          <p>Sem estratégia, o corpo entende que está passando por escassez.</p>
+        </div>
+      </li>
+      <li class="cycle__step" data-aos="fade-up" data-aos-delay="90">
+        <span class="cycle__num">II</span>
+        <div class="cycle__body">
+          <h3>O corpo faz o trabalho dele</h3>
+          <p>Reduz o gasto de energia, aumenta a fome e sacrifica a massa muscular para se proteger.</p>
+        </div>
+      </li>
+      <li class="cycle__step" data-aos="fade-up" data-aos-delay="180">
+        <span class="cycle__num">III</span>
+        <div class="cycle__body">
+          <h3>Você perde 3 kg e o metabolismo desacelera</h3>
+          <p>Quando volta a comer normal, recupera 5.</p>
+        </div>
+      </li>
+      <li class="cycle__step cycle__step--name" data-aos="fade-up" data-aos-delay="270">
+        <span class="cycle__num">↻</span>
+        <div class="cycle__body">
+          <h3>Esse ciclo tem nome: efeito sanfona</h3>
+          <p>E é uma resposta biológica previsível, não um fracasso seu.</p>
+        </div>
+      </li>
+    </ol>
+
+    <div class="why__close" data-aos="fade-up">
+      <p>
+        Agora soma o resto. Um sono ruim, que aumenta a resistência à insulina. E um quadro hormonal
+        que talvez esteja desregulado sem você saber, porque o exame de rotina não olha isso a fundo.
+      </p>
+      <p class="why__punch">
+        Pronto. Você tem um corpo funcionando contra o processo de emagrecimento.
+      </p>
+      <p>
+        O corpo humano não é uma calculadora de calorias. Ele é regulado por hormônio, pelo sono e pela
+        quantidade de massa muscular que você carrega. Quando qualquer uma dessas engrenagens desregula,
+        você pode comer pouco e mesmo assim não emagrecer.
+      </p>
+      <a class="btn btn--ghost" href="#checkout">Quero sair desse ciclo</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ SEÇÃO 4: QUATRO PILARES ============ -->
+<!-- Arquétipo: Bento Box · Constraints: SVG Ilustração (mídia) + Hover Lift (interação) + Color Blocking (cor) -->
+<section class="pilares" id="pilares">
+  <div class="wrap">
+
+    <div class="sec__head">
+      <h2 class="sec__title" data-aos="fade-up">Quatro pilares. Uma tarefa por dia.</h2>
+      <p class="sec__sub" data-aos="fade-up" data-aos-delay="80">
+        Parece simples e é simples mesmo. Só que pouca gente faz direito, e é por isso que pouca gente tem resultado que dura.
+      </p>
+    </div>
+
+    <div class="bento">
+
+      <article class="pilar pilar--grande" data-aos="fade-up">
+        <span class="pilar__num" aria-hidden="true">01</span>
+        <span class="pilar__ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="14" cy="12" r="7"/><circle cx="14" cy="12" r="3.4"/>
+            <path d="M2.5 3v5.2a1.7 1.7 0 0 0 3.4 0V3"/><path d="M4.2 8.4V21"/>
+          </svg>
+        </span>
+        <h3 class="pilar__titulo">O prato</h3>
+        <p>Proteína em todas as refeições, do tamanho da palma da sua mão. Inclusive no café da manhã, que é onde quase todo mundo falha. Depois, metade do prato de verdura e legume. E aí sim o carboidrato, que você não precisa zerar, precisa dar contexto. Se eu pudesse mudar uma única coisa na alimentação de todo paciente que chega no meu consultório, seria a proteína vindo primeiro.</p>
+      </article>
+
+      <article class="pilar pilar--larga" data-aos="fade-up" data-aos-delay="90">
+        <span class="pilar__num" aria-hidden="true">02</span>
+        <span class="pilar__ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 9v6M7 6.5v11M17 6.5v11M20 9v6M7 12h10"/>
+          </svg>
+        </span>
+        <h3 class="pilar__titulo">O treino</h3>
+        <p>Sinto em te avisar, mas caminhada sozinha não resolve. Quando você emagrece sem treinar força, parte importante do peso perdido vem de massa muscular, o metabolismo desacelera e o corpo fica mais preparado do que nunca para recuperar o peso. Por isso treino de força não é negociável aqui. E você não precisa de academia: são treinos de 20 minutos em casa, com o peso do próprio corpo, duas a três vezes por semana.</p>
+      </article>
+
+      <article class="pilar pilar--ampla" data-aos="fade-up" data-aos-delay="180">
+        <span class="pilar__num" aria-hidden="true">03</span>
+        <span class="pilar__ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20.5 14.8A8.6 8.6 0 0 1 9.2 3.5a8.6 8.6 0 1 0 11.3 11.3Z"/>
+          </svg>
+        </span>
+        <h3 class="pilar__titulo">O sono</h3>
+        <p>Você pode acertar o prato e o treino inteiros e ainda travar por causa de algo que acontece de olhos fechados. Dormindo menos de seis horas, o corpo aumenta a grelina, que é o hormônio da fome, e reduz a leptina, que é o da saciedade. Aquela vontade de atacar a geladeira às dez da noite tem menos a ver com fraqueza e mais com hormônio desregulado pedindo energia rápida.</p>
+      </article>
+
+      <article class="pilar pilar--curta" data-aos="fade-up" data-aos-delay="270">
+        <span class="pilar__num" aria-hidden="true">04</span>
+        <span class="pilar__ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M10 2.5h4v2.8h-4z"/>
+            <path d="M9.2 5.3h5.6a2 2 0 0 1 2 2v12.2a2 2 0 0 1-2 2H9.2a2 2 0 0 1-2-2V7.3a2 2 0 0 1 2-2z"/>
+            <path d="M7.2 13.2h9.6"/>
+          </svg>
+        </span>
+        <h3 class="pilar__titulo">A água</h3>
+        <p>Ela participa de praticamente todas as reações do seu metabolismo, e muita fome fora de hora é sede mal interpretada. A conta que eu uso com os meus pacientes está no seu guia: 35 ml por quilo de peso.</p>
+      </article>
+
+    </div>
+
+    <p class="pilares__fecho" data-aos="fade-up">
+      As tarefas são cumulativas. O que você constrói num dia continua valendo nos dias seguintes.
+      No fim das três semanas, os quatro pilares estão de pé ao mesmo tempo.
+    </p>
+
+    <div class="sec__cta" data-aos="fade-up" data-aos-delay="80">
+      <a class="btn" href="#checkout">Quero construir essa base</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ SEÇÃO 5: COMO FUNCIONA NA PRÁTICA ============ -->
+<!-- Arquétipo: Scroll Storytelling · Constraints: Sticky Element (layout) + Scroll Progress (movimento) + Duocromático (cor) -->
+<section class="pratica" id="como-funciona">
+  <div class="wrap pratica__grid">
+
+    <div class="pratica__aside">
+      <h2 class="sec__title" data-aos="fade-up">Como funciona na prática</h2>
+      <!-- Régua de 21 dias: gerada no script.js, decorativa -->
+      <div class="regua" id="regua" aria-hidden="true"></div>
+    </div>
+
+    <ol class="passos">
+      <li class="passo" data-aos="fade-up">
+        <span class="passo__num" aria-hidden="true">1</span>
+        <div>
+          <h3>Assim que você compra</h3>
+          <p>O acesso chega no seu e-mail. O guia já está lá e a tarefa do dia 1 leva menos de 15 minutos. Você não espera turma e não entra em lista.</p>
+        </div>
+      </li>
+      <li class="passo" data-aos="fade-up" data-aos-delay="90">
+        <span class="passo__num" aria-hidden="true">2</span>
+        <div>
+          <h3>Todo dia</h3>
+          <p>Você abre o guia e executa a tarefa daquele dia. Algumas levam 10 ou 20 minutos. Outras são só uma decisão.</p>
+        </div>
+      </li>
+      <li class="passo" data-aos="fade-up" data-aos-delay="180">
+        <span class="passo__num" aria-hidden="true">3</span>
+        <div>
+          <h3>Cinco aulas comigo, ao longo das três semanas</h3>
+          <p>Uma de abertura, uma para cada pilar e uma de encerramento. Gravadas, para assistir no horário que der.</p>
+        </div>
+      </li>
+
+      <li class="passo passo--recado" data-aos="fade-up" data-aos-delay="270">
+        <div>
+          <p class="passo__rotulo">Combinado</p>
+          <h3>Dois combinados que eu faço com todo paciente</h3>
+          <p>Balança só nos dias marcados no guia, no começo e no fim, porque o peso oscila todo dia por retenção, intestino e hormônio, e pesar diariamente só sabota a sua constância. E você não vai cortar tudo que gosta: tem uma refeição livre marcada no guia, porque constância importa mais do que perfeição.</p>
+        </div>
+      </li>
+
+      <li class="passo" data-aos="fade-up">
+        <span class="passo__num" aria-hidden="true">4</span>
+        <div>
+          <h3>No dia 1 e no dia 21</h3>
+          <p>Você registra foto e medidas nos dois. No fim, compara olhando além da balança: como a roupa está vestindo, como está a sua energia, como está a sua fome, como você está dormindo.</p>
+        </div>
+      </li>
+      <li class="passo" data-aos="fade-up" data-aos-delay="90">
+        <span class="passo__num" aria-hidden="true">5</span>
+        <div>
+          <h3>Na última tarefa</h3>
+          <p>Você escreve o seu plano de manutenção. O mínimo que continua valendo para sempre, escrito e assinado por você.</p>
+        </div>
+      </li>
+
+      <li class="passo passo--cta" data-aos="fade-up">
+        <a class="btn" href="#checkout">Quero o acesso</a>
+      </li>
+    </ol>
+
+  </div>
+</section>
+
+<!-- ============ SEÇÃO 6: O QUE ENTRA ============ -->
+<!-- Arquétipo: Modular · Constraints: Asymmetric Padding (layout) + Hover Underline (interação) + Noise Texture (efeito) -->
+<section class="entra" id="o-que-entra">
+  <div class="wrap">
+
+    <div class="sec__head">
+      <h2 class="sec__title" data-aos="fade-up">O que entra</h2>
+    </div>
+
+    <ul class="entra__lista">
+      <li class="entra__item" data-aos="fade-up">
+        <span class="entra__num" aria-hidden="true">01</span>
+        <div>
+          <h3>O guia dos 21 dias</h3>
+          <p>Uma tarefa por dia, cumulativas, com os dias de balança e a refeição livre já marcados.</p>
+        </div>
+      </li>
+      <li class="entra__item" data-aos="fade-up" data-aos-delay="90">
+        <span class="entra__num" aria-hidden="true">02</span>
+        <div>
+          <h3>Cinco aulas em vídeo comigo</h3>
+          <p>Abertura, prato, treino, sono e encerramento.</p>
+        </div>
+      </li>
+      <li class="entra__item" data-aos="fade-up" data-aos-delay="180">
+        <span class="entra__num" aria-hidden="true">03</span>
+        <div>
+          <h3>Os treinos de 20 minutos</h3>
+          <p>Para fazer em casa, com o peso do próprio corpo, com a descrição de cada movimento. Agachamento, flexão adaptada, prancha, afundo.</p>
+        </div>
+      </li>
+      <li class="entra__item" data-aos="fade-up" data-aos-delay="270">
+        <span class="entra__num" aria-hidden="true">04</span>
+        <div>
+          <h3>A sua conta de água</h3>
+          <p>35 ml por quilo, calculada para o seu peso.</p>
+        </div>
+      </li>
+      <li class="entra__item" data-aos="fade-up">
+        <span class="entra__num" aria-hidden="true">05</span>
+        <div>
+          <h3>O plano de manutenção</h3>
+          <p>A última tarefa do guia, para o depois não virar um vazio.</p>
+        </div>
+      </li>
+      <li class="entra__item" data-aos="fade-up" data-aos-delay="90">
+        <span class="entra__num" aria-hidden="true">06</span>
+        <div>
+          <h3>Acesso por 12 meses</h3>
+          <p>Você pode refazer o desafio quantas vezes quiser dentro desse período.</p>
+        </div>
+      </li>
+    </ul>
+
+    <div class="sec__cta" data-aos="fade-up">
+      <a class="btn" href="#checkout">Quero entrar no Desafio 21 Dias</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ SEÇÃO 7: PARA QUEM É, E PARA QUEM NÃO É ============ -->
+<!-- Arquétipo: Split Vertical · Constraints: Color Blocking (cor) + Clip-path Section (layout) + Fade Left/Right (movimento) -->
+<section class="filtro" id="para-quem">
+
+  <div class="filtro__head">
+    <h2 class="sec__title" data-aos="fade-up">Isso aqui não é para todo mundo.</h2>
+  </div>
+
+  <div class="filtro__split">
+
+    <div class="filtro__col filtro__col--claro" data-aos="fade-right">
+      <h3 class="filtro__titulo">É para você se:</h3>
+      <ul class="filtro__lista">
+        <li>Você já tentou emagrecer mais de uma vez e sente que o corpo travou</li>
+        <li>Você já fez low carb, jejum, cardápio de 1.200 calorias, e perde 3 kg para recuperar 5</li>
+        <li>Você quer entender o mecanismo antes de sair tomando qualquer coisa</li>
+        <li>Você tem pouco tempo e precisa de uma coisa por dia, não de um projeto paralelo</li>
+        <li>Você quer fazer isso com saúde, acompanhada, sem fórmula milagrosa</li>
+      </ul>
+    </div>
+
+    <div class="filtro__col filtro__col--escuro" data-aos="fade-left" data-aos-delay="120">
+      <h3 class="filtro__titulo">Não é para você se:</h3>
+      <ul class="filtro__lista">
+        <li>Você quer perder um número específico de quilos numa data específica. Eu não trabalho assim e não vou fingir que trabalho</li>
+        <li>Você está procurando prescrição de medicação. Receita exige consulta, exame e avaliação clínica, e nada disso acontece em aula gravada</li>
+        <li>Você quer substituir acompanhamento médico por um produto de R$ 47. Os 21 dias constroem a fundação, não são tratamento individualizado</li>
+        <li>Você está em tratamento de transtorno alimentar. Nesse caso o caminho é a sua equipe, e eu prefiro te dizer isso agora</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ SEÇÃO 8: QUEM ESTÁ DO OUTRO LADO ============ -->
+<!-- Arquétipo: Overlapping Grid · Constraints: Imagem com Overlay (mídia) + Negative Margin (layout) + Nested Frames (efeito) -->
+<section class="autor" id="sobre">
+  <div class="wrap autor__grid">
+
+    <div class="autor__foto" data-aos="fade-right">
+      <div class="autor__moldura">
+        <img src="/.netlify/images?url=/images/dr-cassio-retrato.jpg&w=760&q=82" alt="Dr. Cássio Siqueira, médico" width="760" height="1013" loading="lazy" decoding="async">
+      </div>
+    </div>
+
+    <div class="autor__texto" data-aos="fade-left" data-aos-delay="120">
+      <h2 class="sec__title">Dr. Cássio Siqueira</h2>
+      <p class="autor__crm">Médico. CRM SP 233647. Atendimento presencial e online para todo o Brasil.</p>
+
+      <p>Eu atendo pacientes em processo de emagrecimento e saúde hormonal.</p>
+      <p>A maioria chega aqui já tendo passado por outros profissionais. E o que eu mais escuto é que ninguém tinha investigado hormônio, ninguém tinha perguntado sobre sono, e ninguém tinha explicado o porquê de nada.</p>
+      <p>Uma paciente minha de 44 anos chegou com oito anos de efeito sanfona, três nutricionistas diferentes e a certeza de que o problema era ela. Ela comia pouco de verdade, eu vi o registro alimentar. Quando a gente investigou, apareceu o que ninguém tinha olhado: sono de cinco horas por noite bagunçando a insulina, quase nenhuma proteína no dia, zero treino de força e um quadro hormonal típico da perimenopausa que o exame de rotina dela nunca tinha aprofundado.</p>
+      <p class="autor__destaque">Ela não tinha um problema de disciplina. Tinha um contexto trabalhando contra ela.</p>
+      <p>O que a gente fez não foi cortar mais comida, foi o contrário. Organizar o prato com proteína, colocar treino de força três vezes na semana, tratar o sono como prioridade e ajustar a parte hormonal com acompanhamento próximo.</p>
+      <p>Esses 21 dias são a versão organizada do que eu explico para todo paciente antes de qualquer conduta. Não substitui a consulta e não tenta substituir. Mas resolve a parte que trava quase todo mundo, que é não saber por onde começar.</p>
+
+      <p class="autor__nota">Relato de paciente em acompanhamento médico individualizado. Resultados variam de pessoa para pessoa e dependem de avaliação clínica.</p>
+
+      <a class="btn" href="#checkout">Quero começar os 21 dias</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ SEÇÃO 9: INVESTIMENTO ============ -->
+<!-- Arquétipo: Spotlight · Constraints: Glassmorphism (efeito) + Gradiente Radial (cor) + Hover Glow (interação) -->
+<section class="preco" id="investimento">
+  <div class="wrap preco__inner">
+
+    <p class="eyebrow" data-aos="fade-up">Investimento</p>
+
+    <div class="preco__comparativo" data-aos="fade-up" data-aos-delay="80">
+      <p>Vou te dar o comparativo honesto, porque você vai fazer essa conta de qualquer jeito.</p>
+      <p>Uma consulta particular de nutrologia em São Paulo custa entre R$ 800 e R$ 1.500. Um mês de medicação para emagrecimento custa entre R$ 1.000 e R$ 3.000. E muita gente entra nessa conta antes de ter o básico de pé, que é justamente o que faz o resultado não se sustentar depois.</p>
+      <p class="preco__frase">Os 21 dias custam R$ 47, uma vez.</p>
+    </div>
+
+    <div class="preco__card" data-aos="fade-up" data-aos-delay="140">
+      <p class="preco__num"><span class="preco__cifra">R$</span><span id="preco-conta" data-valor="47">47</span></p>
+      <p class="preco__unico">pagamento único</p>
+      <p class="preco__lanche">Menos que um lanche por semana</p>
+
+      <ul class="preco__lista">
+        <li>O guia dos 21 dias, com uma tarefa por dia</li>
+        <li>Cinco aulas em vídeo comigo</li>
+        <li>Os treinos de 20 minutos para fazer em casa</li>
+        <li>A sua conta de água personalizada</li>
+        <li>O plano de manutenção da última tarefa</li>
+      </ul>
+
+      <a class="btn" href="#checkout">Quero entrar por R$ 47</a>
+      <p class="preco__micro">Pagamento único, sem assinatura e sem renovação automática. Você faz a primeira tarefa ainda hoje.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ SEÇÃO 10: GARANTIA ============ -->
+<!-- Arquétipo: Isolated Element · Constraints: Container Narrow (layout) + Draw SVG (movimento) + Low Contrast (cor) -->
+<section class="garantia" id="garantia">
+  <div class="garantia__inner">
+
+    <div class="selo" id="selo">
+      <svg class="selo__svg" viewBox="0 0 100 100" aria-hidden="true">
+        <circle class="selo__anel" cx="50" cy="50" r="42" fill="none" stroke="#B56E47" stroke-width="1.5"/>
+        <circle cx="50" cy="50" r="34" fill="none" stroke="rgba(181,110,71,.35)" stroke-width="1"/>
+      </svg>
+      <span class="selo__txt" aria-hidden="true">
+        <em>7</em>
+        <small>Dias</small>
+      </span>
+    </div>
+
+    <h2 class="sec__title" data-aos="fade-up" data-aos-delay="120">Sete dias para decidir, sem precisar justificar.</h2>
+
+    <div class="garantia__txt" data-aos="fade-up" data-aos-delay="200">
+      <p>Você entra, abre o guia, faz as primeiras tarefas e vê como funciona. Se em até 7 dias achar que não é para você, pede o reembolso e recebe os R$ 47 de volta. Sem formulário de motivo e sem ligação de retenção.</p>
+      <p class="garantia__fecho">Eu prefiro que você saia nos primeiros dias a te ver comprando uma coisa que não vai usar.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ SEÇÃO 11: FAQ ============ -->
+<!-- Arquétipo: Progressive Reveal · Constraints: Accordion (estrutura) + Hover Underline (interação) + Low Contrast (cor) -->
+<section class="faq" id="faq">
+  <div class="faq__inner">
+
+    <div class="sec__head">
+      <h2 class="sec__title" data-aos="fade-up">Perguntas que sempre aparecem</h2>
+    </div>
+
+    <div class="faq__lista">
+
+      <div class="faq__item" data-aos="fade-up">
+        <h3><button class="faq__q" type="button" aria-expanded="true" aria-controls="faq-1" id="faq-b-1">
+          <span>Eu já comprei coisa online antes e não terminei. Por que aqui seria diferente?</span>
+          <svg class="faq__chevron" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </button></h3>
+        <div class="faq__a" id="faq-1" role="region" aria-labelledby="faq-b-1">
+          <p>Essa é a pergunta mais honesta que existe e eu vou responder com o formato, não com discurso. É uma tarefa por dia. Algumas levam 15 minutos, outras são só uma decisão. Não tem módulo de 40 minutos esperando você ter uma tarde livre, porque essa tarde não vai existir. E não tem grupo lotando o seu celular com mensagem que você vai ter que colocar em dia depois.</p>
+        </div>
+      </div>
+
+      <div class="faq__item" data-aos="fade-up" data-aos-delay="60">
+        <h3><button class="faq__q" type="button" aria-expanded="false" aria-controls="faq-2" id="faq-b-2">
+          <span>Vou precisar de academia?</span>
+          <svg class="faq__chevron" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </button></h3>
+        <div class="faq__a" id="faq-2" role="region" aria-labelledby="faq-b-2">
+          <p>Não. Os treinos são de 20 minutos, em casa, com o peso do próprio corpo, e cada movimento vem descrito. Se você já treina em academia, mantém o seu treino e usa as tarefas como complemento.</p>
+        </div>
+      </div>
+
+      <div class="faq__item" data-aos="fade-up" data-aos-delay="120">
+        <h3><button class="faq__q" type="button" aria-expanded="false" aria-controls="faq-3" id="faq-b-3">
+          <span>Vou ter que cortar tudo que eu gosto?</span>
+          <svg class="faq__chevron" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </button></h3>
+        <div class="faq__a" id="faq-3" role="region" aria-labelledby="faq-b-3">
+          <p>Não. Tem uma refeição livre marcada no guia, de propósito, porque constância importa mais do que perfeição. O trabalho aqui é organizar o prato, começando pela proteína, e não montar lista de proibição.</p>
+        </div>
+      </div>
+
+      <div class="faq__item" data-aos="fade-up" data-aos-delay="180">
+        <h3><button class="faq__q" type="button" aria-expanded="false" aria-controls="faq-4" id="faq-b-4">
+          <span>Você prescreve medicação no desafio?</span>
+          <svg class="faq__chevron" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </button></h3>
+        <div class="faq__a" id="faq-4" role="region" aria-labelledby="faq-b-4">
+          <p>Não. Receita exige consulta, exame e avaliação clínica, e nada disso acontece em aula gravada. Eu prescrevo para muitos pacientes no consultório, e é justamente por isso que eu não faço isso aqui.</p>
+        </div>
+      </div>
+
+      <div class="faq__item" data-aos="fade-up">
+        <h3><button class="faq__q" type="button" aria-expanded="false" aria-controls="faq-5" id="faq-b-5">
+          <span>Eu vou sair daqui precisando de consulta?</span>
+          <svg class="faq__chevron" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </button></h3>
+        <div class="faq__a" id="faq-5" role="region" aria-labelledby="faq-b-5">
+          <p>Vou ser honesto, porque é isso que eu faria com qualquer paciente. Para uma parte das pessoas, esses pilares bem executados já destravam o processo. Para outra parte existe algo a mais por trás, um quadro hormonal que precisa de ajuste ou uma resistência à insulina que precisa de tratamento. Isso não se resolve em vídeo, se resolve em consulta com exame e investigação. Você vai sair do dia 21 sabendo em qual dos dois grupos você está, e isso já é muito mais do que você tem hoje.</p>
+        </div>
+      </div>
+
+      <div class="faq__item" data-aos="fade-up" data-aos-delay="60">
+        <h3><button class="faq__q" type="button" aria-expanded="false" aria-controls="faq-6" id="faq-b-6">
+          <span>Quando começa?</span>
+          <svg class="faq__chevron" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </button></h3>
+        <div class="faq__a" id="faq-6" role="region" aria-labelledby="faq-b-6">
+          <p>No dia em que você comprar. A primeira tarefa leva menos de 15 minutos e dá para fazer ainda hoje.</p>
+        </div>
+      </div>
+
+      <div class="faq__item" data-aos="fade-up" data-aos-delay="120">
+        <h3><button class="faq__q" type="button" aria-expanded="false" aria-controls="faq-7" id="faq-b-7">
+          <span>Por quanto tempo eu tenho acesso?</span>
+          <svg class="faq__chevron" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </button></h3>
+        <div class="faq__a" id="faq-7" role="region" aria-labelledby="faq-b-7">
+          <p>Doze meses. Dá para refazer o desafio quantas vezes quiser dentro desse período.</p>
+        </div>
+      </div>
+
+      <div class="faq__item" data-aos="fade-up" data-aos-delay="180">
+        <h3><button class="faq__q" type="button" aria-expanded="false" aria-controls="faq-8" id="faq-b-8">
+          <span>Serve para homem?</span>
+          <svg class="faq__chevron" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </button></h3>
+        <div class="faq__a" id="faq-8" role="region" aria-labelledby="faq-b-8">
+          <p>Serve. Os quatro pilares valem para todo mundo.</p>
+        </div>
+      </div>
+
+      <div class="faq__item" data-aos="fade-up">
+        <h3><button class="faq__q" type="button" aria-expanded="false" aria-controls="faq-9" id="faq-b-9">
+          <span>E se eu não gostar?</span>
+          <svg class="faq__chevron" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </button></h3>
+        <div class="faq__a" id="faq-9" role="region" aria-labelledby="faq-b-9">
+          <p>Sete dias de garantia. Você pede o reembolso e recebe o valor de volta, sem precisar explicar nada.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ SEÇÃO 12: CTA FINAL ============ -->
+<!-- Arquétipo: Type Hero · Constraints: Gradiente Radial (cor) + Pulse Loop (movimento) + Container Narrow (layout) -->
+<section class="final">
+  <div class="final__inner">
+
+    <h2 class="final__titulo" data-aos="fade-up">
+      Daqui a 21 dias você vai ter uma fundação. <span>E ela é sua.</span>
+    </h2>
+
+    <div class="final__txt" data-aos="fade-up" data-aos-delay="100">
+      <p>Proteína no prato, treino de força na semana, sono tratado como pilar e água na meta. Isso não é pouco, é o que sustenta qualquer resultado que venha depois.</p>
+      <p>Você chegar ao dia 21 já te coloca num grupo pequeno, o das pessoas que terminam o que começam.</p>
+      <p class="final__ultima">A primeira tarefa leva menos de 15 minutos. Faz hoje, não deixa para segunda-feira.</p>
+    </div>
+
+    <div data-aos="fade-up" data-aos-delay="180">
+      <a class="btn btn--grande" href="#checkout">Quero começar hoje</a>
+      <p class="final__micro">R$ 47, pagamento único. Garantia de 7 dias.</p>
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+<!-- ============ RODAPÉ ============ -->
+<footer class="rodape">
+  <div class="wrap rodape__grid">
+
+    <img class="rodape__logo" src="/.netlify/images?url=/images/logo-cassio.png&w=140&q=90" alt="Dr. Cássio Siqueira" width="40" height="48" loading="lazy" decoding="async">
+
+    <div>
+      <p class="rodape__id">Dr. Cássio Siqueira. Médico, CRM SP 233647.<br>Atendimento presencial e online para todo o Brasil.</p>
+      <p class="rodape__disclaimer">Conteúdo informativo. As informações apresentadas aqui não substituem diagnóstico, consulta ou acompanhamento médico. Resultados variam de pessoa para pessoa e dependem de avaliação clínica individual.</p>
+      <p class="rodape__links">
+        <a href="/politica-de-privacidade/">Política de privacidade</a>
+        <span aria-hidden="true">·</span>
+        <a href="/termos-de-uso/">Termos de uso</a>
+      </p>
+    </div>
+
+  </div>
+</footer>
+
+<!-- ============ BARRA FIXA ============ -->
+<div class="stickybar" id="stickybar">
+  <span class="stickybar__info"><strong>Desafio 21 Dias</strong> <span aria-hidden="true">·</span> R$ 47, pagamento único</span>
+  <a class="btn btn--sm" href="#checkout">Quero o acesso</a>
+</div>
+
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script src="/script.js?v=3"></script>
+</body>
+</html>

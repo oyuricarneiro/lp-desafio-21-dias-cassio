@@ -1,0 +1,977 @@
+/* ============================================================
+   Desafio 21 Dias — Dr. Cássio Siqueira
+   Sistema visual extraído do site oficial drcassiosiqueira.com.br
+   (estilos computados no render real, não do CSS do tema).
+
+   TIPOGRAFIA
+   - Cinzel     → equivalente Google Fonts do "Cresci LP W01"
+                  (Garrett Boge / LetterPerfect), a fonte de títulos
+                  declarada no site. A original é licenciada e no site
+                  dele está com status "error", caindo em fallback.
+                  Cinzel reproduz a mesma capitular romana clássica.
+                  Uso sempre em CAIXA ALTA, como no site.
+   - Montserrat → fonte de corpo real do site. Normalmente evitada por
+                  ser overused, mas aqui é fonte da marca e a marca manda.
+
+   CORES (amostradas do render)
+   - preto do hero      #121212
+   - grafite do rodapé  #333333
+   - faixa clara        #E8E8E8
+   - CTA verde          linear-gradient(90deg,#00D82F,#007F1C), raio 5px
+   - cobre do logo      #B56E47 · #C8926B · #CEA98A
+   ============================================================ */
+
+:root{
+  --preto:#121212;
+  --preto-2:#1B1B1B;
+  --grafite:#333333;
+  --cinza:#E8E8E8;
+  --cinza-2:#D8D8D8;
+  --branco:#FFFFFF;
+
+  --verde-1:#00D82F;
+  --verde-2:#007F1C;
+  --verde-escuro:#006115;
+
+  --cobre-900:#7A4529;
+  --cobre-700:#B56E47;
+  --cobre-500:#C8926B;
+  --cobre-300:#CEA98A;
+
+  --tinta:#141414;
+  --tinta-soft:#5A5A5A;
+  --tinta-inv:#F0F0F0;
+  --tinta-inv-soft:#B0B0B0;
+
+  --display:'Cinzel', Georgia, serif;
+  --sans:'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  --wrap:1180px;
+  --wrap-narrow:820px;
+  --wrap-tight:640px;
+  --r:5px;                 /* raio do botão no site oficial */
+
+  --sombra-card:0 2px 4px rgba(20,20,20,.04), 0 12px 28px -18px rgba(20,20,20,.22);
+  --sombra-cta:0 10px 26px -14px rgba(0,150,33,.9);
+}
+
+*,*::before,*::after{box-sizing:border-box;}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;}
+body{
+  margin:0;
+  background:var(--branco);
+  color:var(--tinta);
+  font-family:var(--sans);
+  font-size:16px;
+  line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+img{max-width:100%;display:block;}
+h1,h2,h3{margin:0;font-weight:400;}
+p{margin:0;}
+
+/* ---------- títulos: capitular romana em caixa alta ---------- */
+.display{
+  font-family:var(--display);
+  font-weight:400;
+  text-transform:uppercase;
+  letter-spacing:.005em;
+  line-height:1.22;
+  text-wrap:balance;
+}
+
+/* ---------- botões: gradiente verde do site ---------- */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  font-family:var(--sans);font-size:1rem;font-weight:600;
+  text-decoration:none;color:#fff;
+  background-image:linear-gradient(90deg,var(--verde-1) 0%,var(--verde-2) 100%);
+  padding:1rem 2.3rem;border:0;border-radius:var(--r);
+  cursor:pointer;
+  box-shadow:0 10px 26px -14px rgba(0,150,33,.9);
+  transition:filter .22s ease, transform .22s ease, box-shadow .22s ease;
+}
+.btn:hover{filter:brightness(1.09);transform:translateY(-2px);box-shadow:0 16px 32px -14px rgba(0,150,33,1);}
+.btn:focus-visible{outline:3px solid var(--verde-1);outline-offset:3px;}
+.btn--sm{padding:.7rem 1.35rem;font-size:.9rem;}
+.btn--ghost{
+  background-image:none;background-color:transparent;
+  color:var(--tinta);box-shadow:inset 0 0 0 1px rgba(20,20,20,.32);
+}
+.btn--ghost:hover{background-color:var(--tinta);color:#fff;box-shadow:inset 0 0 0 1px var(--tinta);filter:none;}
+
+.eyebrow{
+  font-family:var(--sans);
+  font-size:.68rem;font-weight:700;
+  letter-spacing:.28em;text-transform:uppercase;
+  color:var(--cobre-500);
+  margin-bottom:1.15rem;
+}
+
+/* ============================================================
+   HERO — Split Assimétrico
+   Constraints: Imagem com Gradiente (mídia) + Nested Frames (layout)
+                + Gradiente Linear (cor, o CTA verde da marca)
+   ============================================================ */
+.hero{
+  position:relative;
+  background:var(--preto);
+  color:var(--tinta-inv);
+  padding:1.1rem 1.5rem 0;
+  overflow:hidden;
+}
+/* halo quente vindo da direita, onde fica a mídia — é o que o site faz com a foto */
+.hero::before{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(70% 60% at 82% 32%, rgba(181,110,71,.16), transparent 64%);
+}
+.hero__bar{
+  position:relative;z-index:2;
+  max-width:var(--wrap);margin:0 auto;
+  display:flex;align-items:center;justify-content:space-between;gap:1rem;
+  padding-bottom:.9rem;
+}
+.hero__logo{width:auto;height:60px;}
+.hero__crm{
+  font-size:.66rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--tinta-inv-soft);
+}
+.hero__grid{
+  position:relative;z-index:2;
+  max-width:var(--wrap);margin:0 auto;
+  display:grid;gap:2.2rem;align-items:center;
+}
+.hero__title{
+  font-family:var(--display);font-weight:400;text-transform:uppercase;
+  font-size:clamp(1.44rem,5.15vw,2.62rem);
+  line-height:1.24;letter-spacing:.004em;
+  color:#fff;margin-bottom:1.15rem;text-wrap:balance;
+}
+/* bloco próprio: sem o "E" ficando órfão no fim da linha de cima */
+.hero__title span{display:block;color:var(--cobre-500);}
+.hero__sub{
+  font-size:.97rem;line-height:1.72;color:var(--tinta-inv-soft);
+  max-width:33rem;margin-bottom:1.75rem;
+}
+.hero__micro{font-size:.86rem;color:var(--tinta-inv-soft);margin-top:1rem;}
+.hero__micro strong{color:#fff;font-weight:700;}
+.hero__cred{
+  font-size:.73rem;line-height:1.7;color:#8E8E8E;
+  margin-top:1.4rem;padding-top:1.1rem;
+  border-top:1px solid rgba(200,146,107,.26);
+  max-width:26rem;
+}
+
+/* ---------- VSL: moldura fina do logo, vídeo vertical 9:16 ----------
+   O arquivo entregue é 1080x1920. Em 16:9 ele seria cortado no rosto ou
+   nas legendas queimadas, então a moldura acompanha o formato do vídeo. */
+.vsl{position:relative;padding:9px;max-width:300px;margin-inline:auto;}
+.vsl::before{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  border:1px solid rgba(200,146,107,.55);
+}
+.vsl__frame{
+  position:relative;display:block;width:100%;
+  padding:0;border:0;background:#000;
+  aspect-ratio:9/16;overflow:hidden;cursor:pointer;font-family:var(--sans);
+}
+.vsl__poster{
+  width:100%;height:100%;object-fit:cover;object-position:center;
+  transition:transform .7s cubic-bezier(.2,.7,.3,1);
+}
+/* só o gradiente inferior: no retrato, um dissolve lateral cobriria o rosto */
+.vsl__frame::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(18,18,18,0) 56%,rgba(18,18,18,.34) 76%,rgba(18,18,18,.9) 100%);
+}
+/* o player injetado herda a moldura e o formato */
+.vsl video{width:100%;aspect-ratio:9/16;object-fit:cover;display:block;background:#000;}
+.vsl__frame:hover .vsl__poster{transform:scale(1.035);}
+.vsl__play{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  z-index:2;display:grid;place-items:center;
+  width:72px;height:72px;border-radius:50%;padding-left:4px;
+  background-image:linear-gradient(90deg,var(--verde-1),var(--verde-2));
+  color:#fff;
+  box-shadow:0 12px 34px -8px rgba(0,0,0,.8);
+  transition:transform .28s ease, filter .28s ease;
+}
+/* animação pós-carregamento (permitida no hero) */
+.vsl__play::before{
+  content:'';position:absolute;inset:-1px;border-radius:50%;
+  border:1px solid rgba(0,216,47,.7);
+  animation:halo 3.4s ease-out infinite;
+}
+@keyframes halo{
+  0%{transform:scale(1);opacity:.8;}
+  70%{transform:scale(1.7);opacity:0;}
+  100%{transform:scale(1.7);opacity:0;}
+}
+.vsl__frame:hover .vsl__play{transform:translate(-50%,-50%) scale(1.07);filter:brightness(1.1);}
+.vsl__label{
+  position:absolute;left:0;right:0;bottom:0;z-index:2;
+  padding:1.5rem 1.2rem 1rem;
+  font-size:.72rem;font-weight:600;letter-spacing:.13em;text-transform:uppercase;
+  color:#EDEDED;text-align:left;
+}
+
+/* ---------- faixa de credibilidade ---------- */
+.credband{
+  position:relative;z-index:2;
+  max-width:var(--wrap);margin:2.8rem auto 0;
+  display:grid;gap:1.3rem;
+  padding:1.5rem 0 2.4rem;
+  border-top:1px solid rgba(255,255,255,.11);
+}
+.credband__item{font-size:.82rem;line-height:1.6;color:#9A9A9A;}
+.credband__item strong{
+  display:block;color:#fff;font-weight:700;
+  font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;
+  margin-bottom:.3rem;
+}
+
+/* ============================================================
+   POR QUE VOCÊ TRAVA — Editorial
+   Constraints: Bleed Left (layout) + Stagger (movimento)
+                + Selective Color (cobre destaca no cinza neutro)
+   Faixa clara #E8E8E8 com título preto centralizado: é o ritmo do site.
+   ============================================================ */
+.why{
+  background:var(--cinza);
+  color:var(--tinta);
+  padding:4.6rem 1.5rem 5rem;
+}
+.why__inner{max-width:780px;margin:0 auto;}
+.why__head{text-align:center;margin-bottom:3rem;}
+.why__head h2{
+  font-family:var(--display);font-weight:400;text-transform:uppercase;
+  font-size:clamp(1.35rem,4.6vw,2.25rem);
+  line-height:1.26;letter-spacing:.004em;text-wrap:balance;
+}
+.why__sub{
+  font-size:1rem;color:var(--tinta-soft);
+  margin-top:1rem;max-width:34rem;margin-inline:auto;
+}
+.why__lead{
+  margin-top:1.5rem;font-size:.97rem;color:var(--tinta-soft);
+  max-width:34rem;margin-inline:auto;
+}
+
+/* ---------- o ciclo ---------- */
+.cycle{list-style:none;margin:0;padding:0;position:relative;}
+.cycle::before{
+  content:'';position:absolute;left:0;top:.9rem;bottom:3.2rem;
+  width:1px;background:linear-gradient(180deg,var(--cobre-700),rgba(181,110,71,.14));
+}
+.cycle__step{
+  position:relative;display:grid;grid-template-columns:auto 1fr;
+  gap:1.3rem;align-items:start;padding:0 0 2.1rem 0;
+}
+.cycle__num{
+  font-family:var(--display);font-size:1.05rem;font-weight:400;line-height:1;
+  color:var(--cobre-700);
+  width:2.8rem;height:2.8rem;flex:none;
+  display:grid;place-items:center;
+  margin-left:-1.4rem;                    /* Bleed Left */
+  background:var(--cinza);
+  border:1px solid rgba(181,110,71,.5);
+  border-radius:50%;
+}
+.cycle__body h3{
+  font-family:var(--sans);font-weight:700;
+  font-size:.95rem;line-height:1.5;letter-spacing:.01em;
+  text-transform:uppercase;color:var(--tinta);
+  margin-bottom:.35rem;
+}
+.cycle__body p{color:var(--tinta-soft);font-size:.95rem;}
+.cycle__step--name .cycle__num{
+  color:#fff;background:var(--cobre-700);border-color:var(--cobre-700);
+  font-size:1.2rem;
+}
+.cycle__step--name .cycle__body h3{color:var(--cobre-900);}
+
+/* medida controlada: linha corrida de 95 caracteres cansa a leitura */
+.why__close{margin-top:.4rem;display:grid;gap:1.2rem;max-width:40rem;}
+.why__close p{color:var(--tinta-soft);font-size:.97rem;}
+/* a frase de impacto precisa quebrar em 2 linhas, senão estica e perde força */
+.why__punch{
+  font-family:var(--display);text-transform:uppercase;
+  font-size:clamp(1.1rem,3.4vw,1.6rem);line-height:1.34;
+  color:var(--tinta) !important;
+  max-width:26rem;
+  padding-left:1.15rem;border-left:2px solid var(--cobre-700);
+  margin-block:.4rem;
+}
+.why__close .btn{margin-top:1.2rem;justify-self:start;}
+
+/* ============================================================
+   BARRA FIXA — SEMPRE centralizada, desktop e mobile
+   ============================================================ */
+.stickybar{
+  position:fixed;bottom:1rem;z-index:60;
+  left:0;right:0;width:fit-content;margin-inline:auto;
+  max-width:calc(100% - 1.6rem);
+  display:flex;align-items:center;gap:1rem;
+  padding:.55rem .55rem .55rem 1.3rem;
+  background:rgba(18,18,18,.93);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border:1px solid rgba(255,255,255,.13);
+  border-radius:var(--r);
+  box-shadow:0 16px 44px -18px rgba(0,0,0,.9);
+  transform:translateY(160%);opacity:0;
+  transition:transform .42s cubic-bezier(.2,.8,.3,1), opacity .3s ease;
+}
+.stickybar.is-on{transform:translateY(0);opacity:1;}
+.stickybar__info{font-size:.82rem;color:#B4B4B4;white-space:nowrap;}
+.stickybar__info strong{color:#fff;font-weight:700;}
+
+.demo-note{
+  text-align:center;font-size:.75rem;color:#8A8A8A;
+  background:var(--grafite);
+  padding:2.4rem 1.5rem 6.5rem;
+}
+.demo-note code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;}
+
+/* ============================================================
+   UTILITÁRIOS DE SEÇÃO
+   ============================================================ */
+.wrap{max-width:var(--wrap);margin-inline:auto;}
+.sec__head{text-align:center;margin-bottom:36px;}
+.sec__title{
+  font-family:var(--display);font-weight:400;text-transform:uppercase;
+  font-size:clamp(1.35rem,4.6vw,2.25rem);
+  line-height:1.26;letter-spacing:.004em;text-wrap:balance;
+  color:var(--tinta);
+}
+.sec__sub{
+  font-size:15.5px;color:var(--tinta-soft);
+  max-width:544px;margin:14px auto 0;
+}
+.sec__cta{text-align:center;margin-top:40px;}
+.btn--grande{padding:19px 46px;font-size:17px;}
+.btn--ghost-inv{
+  background-image:none;background-color:transparent;color:var(--tinta-inv);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.28);
+}
+.btn--ghost-inv:hover{background-color:var(--tinta-inv);color:var(--preto);box-shadow:inset 0 0 0 1px var(--tinta-inv);filter:none;}
+
+/* ============================================================
+   SEÇÃO 4 — QUATRO PILARES
+   Bento Box + SVG Ilustração + Hover Lift + Color Blocking
+   ============================================================ */
+.pilares{background:var(--branco);padding:56px 20px 60px;}
+.pilares .sec__head{margin-bottom:44px;}
+
+.bento{display:grid;gap:14px;}
+
+.pilar{
+  position:relative;
+  padding:24px 20px;
+  background:var(--branco);
+  border:1px solid #E4E4E4;
+  border-radius:var(--r);
+  box-shadow:var(--sombra-card);
+  transition:transform .28s ease, border-color .28s ease, box-shadow .28s ease;
+}
+.pilar__num{
+  position:absolute;top:20px;right:24px;
+  font-family:var(--display);font-size:13px;color:var(--cobre-300);
+  letter-spacing:.04em;
+}
+.pilar__ico{
+  display:block;width:34px;height:34px;color:var(--cobre-700);
+  margin-bottom:18px;transition:color .28s ease;
+}
+.pilar__ico svg{width:100%;height:100%;display:block;}
+.pilar__titulo{
+  font-family:var(--display);font-weight:400;text-transform:uppercase;
+  font-size:18px;line-height:1.25;letter-spacing:.004em;
+  color:var(--tinta);margin-bottom:10px;
+}
+.pilar p{font-size:15px;line-height:1.65;color:var(--tinta-soft);}
+
+/* Hover Lift */
+.pilar:hover{
+  transform:translateY(-4px);
+  border-color:var(--cobre-700);
+  box-shadow:0 4px 8px rgba(20,20,20,.05), 0 22px 44px -20px rgba(20,20,20,.28);
+}
+.pilar:hover .pilar__ico{color:var(--cobre-900);}
+
+/* Color Blocking: o card do prato é o único com fundo, e só quando é maior */
+.pilares__fecho{
+  margin-top:20px;padding:24px 22px;
+  background:var(--preto);color:var(--tinta-inv);
+  border-radius:var(--r);
+  text-align:center;font-size:16px;line-height:1.7;
+  max-width:640px;margin-inline:auto;
+}
+
+/* ============================================================
+   SEÇÃO 5 — COMO FUNCIONA NA PRÁTICA
+   Scroll Storytelling + Sticky Element + Scroll Progress + Duocromático
+   ============================================================ */
+.pratica{background:var(--cinza);padding:56px 20px 60px;}
+/* min-width:0 nos filhos: sem isso a régua (flex de 21 itens) define o
+   min-content da coluna e estica o grid inteiro para fora da viewport */
+.pratica__grid{display:grid;gap:30px;min-width:0;}
+.pratica__grid > *{min-width:0;}
+.pratica__aside .sec__title{text-align:center;}
+
+/* --- régua de 21 dias --- */
+.regua{
+  position:sticky;top:0;z-index:20;
+  display:flex;align-items:center;justify-content:center;gap:5px;
+  height:48px;margin:18px -20px 0;padding:0 20px;
+  background:var(--cinza);
+  transition:box-shadow .25s ease, opacity .25s ease;
+}
+.regua.is-stuck{box-shadow:0 6px 16px -12px rgba(20,20,20,.4);}
+.regua.is-off{opacity:0;pointer-events:none;}
+/* No mobile as marcas dividem a largura disponível em vez de terem largura
+   fixa: com flex:none os 21 itens não cabiam em 360px. */
+.regua__marca{
+  flex:1 1 0;min-width:0;max-width:12px;
+  height:2px;
+  background:#C9C9C9;border-radius:1px;
+  transition:background .3s ease, height .3s ease;
+}
+.regua__marca.is-on{background:var(--cobre-700);}
+.regua__marca--borda{height:4px;background:#BFBFBF;}
+.regua__marca--borda.is-on{background:var(--cobre-900);}
+.regua__dia{
+  font-family:var(--display);font-size:11px;color:var(--cobre-900);
+  padding:0 4px;flex:none;letter-spacing:.02em;
+}
+
+/* --- passos --- */
+.passos{list-style:none;margin:0;padding:0;display:grid;gap:30px;}
+.passo{display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:start;}
+.passo__num{
+  font-family:var(--display);font-size:24px;line-height:1.15;
+  color:var(--cobre-300);flex:none;min-width:26px;
+}
+.passo h3{
+  font-family:var(--sans);font-weight:700;text-transform:uppercase;
+  font-size:15px;line-height:1.5;letter-spacing:.01em;
+  color:var(--tinta);margin-bottom:8px;
+}
+.passo p{font-size:16px;line-height:1.7;color:var(--tinta-soft);max-width:40rem;}
+
+/* bloco 4: recado à parte, não é mais um passo */
+.passo--recado{
+  grid-template-columns:1fr;
+  background:var(--branco);
+  border-left:3px solid var(--cobre-700);
+  border-radius:0 var(--r) var(--r) 0;
+  padding:22px 20px;
+}
+.passo__rotulo{
+  font-family:var(--sans);font-weight:700;
+  font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--cobre-900);margin-bottom:8px;
+}
+/* o botão não pode esticar para a largura toda da coluna: vira faixa verde */
+.passo--cta{grid-template-columns:1fr;}
+.passo--cta .btn{justify-self:start;}
+
+/* ============================================================
+   SEÇÃO 6 — O QUE ENTRA
+   Modular + Asymmetric Padding + Hover Underline + Noise Texture
+   ============================================================ */
+.entra{position:relative;background:var(--branco);padding:56px 20px 60px;overflow:hidden;}
+/* Noise Texture, SVG inline, sem requisição externa */
+.entra::before{
+  content:'';position:absolute;inset:0;pointer-events:none;opacity:.035;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+.entra .wrap{position:relative;z-index:1;}
+.entra .sec__head{margin-bottom:40px;}
+
+.entra__lista{list-style:none;margin:0;padding:0;}
+.entra__item{
+  display:grid;grid-template-columns:44px 1fr;gap:0 16px;
+  padding:20px 0;                       /* Asymmetric Padding no ≥768 */
+  border-bottom:1px solid #E4E4E4;
+  cursor:default;
+}
+.entra__item:first-child{border-top:1px solid #E4E4E4;}
+.entra__num{
+  font-family:var(--display);font-size:17px;line-height:1.4;
+  color:var(--cobre-300);transition:color .32s ease;
+}
+.entra__item h3{
+  position:relative;display:inline-block;
+  font-family:var(--sans);font-weight:700;
+  font-size:15px;line-height:1.45;color:var(--tinta);
+  margin-bottom:5px;
+}
+/* Hover Underline */
+.entra__item h3::after{
+  content:'';position:absolute;left:0;bottom:-2px;
+  width:0;height:1px;background:var(--cobre-700);
+  transition:width .32s cubic-bezier(.2,.8,.3,1);
+}
+.entra__item:hover h3::after{width:100%;}
+.entra__item:hover .entra__num{color:var(--cobre-700);}
+.entra__item p{font-size:14.5px;line-height:1.65;color:var(--tinta-soft);}
+
+/* ============================================================
+   SEÇÃO 7 — PARA QUEM É, E PARA QUEM NÃO É
+   Split Vertical + Color Blocking + Clip-path + Fade Left/Right
+   ============================================================ */
+/* overflow-x contido: o AOS posiciona fade-right/fade-left 100px fora do eixo
+   antes de animar, e isso vazava a página inteira em todas as larguras.
+   Nenhum position:sticky aqui dentro, então hidden é seguro. */
+.filtro{background:var(--branco);overflow-x:hidden;}
+.filtro__head{
+  max-width:var(--wrap);margin-inline:auto;
+  padding:56px 20px 32px;text-align:center;
+}
+.filtro__split{display:grid;}
+.filtro__col{padding:44px 20px 52px;}
+.filtro__col--claro{background:var(--branco);}
+.filtro__col--escuro{background:var(--preto);}
+
+.filtro__titulo{
+  font-family:var(--display);font-weight:400;text-transform:uppercase;
+  font-size:19px;line-height:1.3;letter-spacing:.004em;
+  margin-bottom:24px;
+}
+.filtro__col--claro .filtro__titulo{color:var(--cobre-900);}
+.filtro__col--escuro .filtro__titulo{color:var(--cobre-500);}
+
+.filtro__lista{list-style:none;margin:0;padding:0;display:grid;gap:17px;}
+.filtro__lista li{
+  display:grid;grid-template-columns:20px 1fr;gap:8px;
+  font-size:15px;line-height:1.68;
+}
+.filtro__lista li::before{
+  content:'—';flex:none;line-height:1.68;
+}
+.filtro__col--claro .filtro__lista li{color:var(--tinta);}
+.filtro__col--claro .filtro__lista li::before{color:var(--cobre-700);}
+.filtro__col--escuro .filtro__lista li{color:#D6D6D6;}
+.filtro__col--escuro .filtro__lista li::before{color:#7A6558;}
+
+/* ============================================================
+   SEÇÃO 8 — QUEM ESTÁ DO OUTRO LADO
+   Overlapping Grid + Imagem com Overlay + Negative Margin + Nested Frames
+   ============================================================ */
+/* mesmo motivo do .filtro: fade-right/fade-left do AOS */
+.autor{background:var(--cinza);padding:56px 20px 60px;overflow-x:hidden;}
+.autor__grid{display:grid;gap:0;}
+.autor__foto{position:relative;max-width:420px;margin-inline:auto;width:100%;}
+/* Nested Frames: a moldura fina do logo, mesma do hero */
+.autor__moldura{position:relative;padding:10px;}
+.autor__moldura::before{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  border:1px solid rgba(181,110,71,.55);
+}
+.autor__moldura img{
+  width:100%;height:auto;aspect-ratio:3/4;object-fit:cover;object-position:center 22%;
+  display:block;
+}
+/* Imagem com Overlay: dissolve o pé da foto no fundo da seção */
+.autor__moldura::after{
+  content:'';position:absolute;inset:10px;pointer-events:none;
+  background:linear-gradient(180deg,rgba(232,232,232,0) 58%,rgba(232,232,232,.55) 100%);
+}
+.autor__texto{background:var(--cinza);padding:32px 0 0;display:grid;gap:18px;}
+.autor__texto .sec__title{text-align:left;}
+.autor__crm{
+  font-family:var(--sans);font-weight:500;
+  font-size:13.5px;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--cobre-900);margin-top:-8px;
+}
+.autor__texto p{font-size:15.5px;line-height:1.72;color:var(--tinta-soft);max-width:40rem;}
+.autor__destaque{font-weight:500;font-size:17px !important;color:var(--tinta) !important;}
+/* #7C7C7C sobre #E8E8E8 dava 3.41:1, abaixo do AA. #616161 dá 5.05:1.
+   É nota de compliance médico, tem que ser legível. */
+.autor__nota{
+  font-size:12px !important;line-height:1.6;color:#616161 !important;
+  border-top:1px solid #D0D0D0;padding-top:14px;margin-top:6px;
+}
+.autor__texto .btn{justify-self:start;margin-top:6px;}
+
+/* ============================================================
+   SEÇÃO 9 — INVESTIMENTO
+   Spotlight + Glassmorphism + Gradiente Radial + Hover Glow
+   ============================================================ */
+.preco{position:relative;background:var(--preto);padding:56px 20px 60px;overflow:hidden;}
+.preco::before{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(58% 48% at 50% 42%, rgba(0,216,47,.10), transparent 68%),
+    radial-gradient(76% 60% at 50% 100%, rgba(181,110,71,.14), transparent 70%);
+}
+.preco__inner{position:relative;z-index:2;text-align:center;}
+.preco .eyebrow{color:var(--cobre-500);}
+
+.preco__comparativo{
+  max-width:640px;margin:0 auto 34px;display:grid;gap:14px;
+}
+.preco__comparativo p{font-size:15.5px;line-height:1.72;color:var(--tinta-inv-soft);}
+.preco__frase{font-weight:500;color:var(--tinta-inv) !important;}
+
+/* Glassmorphism */
+.preco__card{
+  max-width:620px;margin-inline:auto;
+  padding:34px 22px 32px;
+  background:rgba(255,255,255,.05);
+  backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
+  border:1px solid rgba(255,255,255,.14);
+  border-radius:var(--r);
+  box-shadow:0 30px 80px -40px rgba(0,0,0,.9);
+  transition:border-color .3s ease, box-shadow .3s ease;
+}
+/* Hover Glow */
+.preco__card:hover{
+  border-color:rgba(0,216,47,.4);
+  box-shadow:0 30px 80px -40px rgba(0,0,0,.9), 0 0 0 1px rgba(0,216,47,.18);
+}
+.preco__num{
+  font-family:var(--display);font-weight:600;
+  font-size:52px;line-height:1;letter-spacing:-.02em;color:#fff;
+}
+.preco__cifra{font-size:.42em;vertical-align:super;margin-right:4px;}
+.preco__unico{font-weight:500;font-size:15px;color:var(--tinta-inv-soft);margin-top:10px;}
+.preco__lanche{
+  font-family:var(--display);text-transform:uppercase;
+  font-size:16px;color:var(--cobre-500);margin-top:6px;letter-spacing:.01em;
+}
+.preco__lista{
+  list-style:none;margin:26px 0 0;padding:26px 0 0;
+  border-top:1px solid rgba(255,255,255,.12);
+  display:grid;gap:11px;text-align:left;
+}
+.preco__lista li{
+  display:grid;grid-template-columns:18px 1fr;gap:8px;
+  font-size:15px;line-height:1.6;color:#D6D6D6;
+}
+.preco__lista li::before{content:'—';color:var(--cobre-500);}
+.preco__card .btn{margin-top:26px;}
+.preco__micro{font-size:13px;line-height:1.6;color:#9A9A9A;margin-top:16px;}
+
+/* ============================================================
+   SEÇÃO 10 — GARANTIA
+   Isolated Element + Container Narrow + Draw SVG + Low Contrast
+   ============================================================ */
+.garantia{background:var(--branco);padding:52px 20px 56px;}
+.garantia__inner{max-width:640px;margin-inline:auto;text-align:center;}
+
+.selo{position:relative;width:72px;height:72px;margin:0 auto 28px;}
+.selo__svg{width:100%;height:100%;display:block;}
+/* Draw SVG: o anel é desenhado quando a seção entra na viewport */
+.selo__anel{stroke-dasharray:264;stroke-dashoffset:264;}
+.selo.is-visible .selo__anel{animation:desenhar 1100ms cubic-bezier(.25,.8,.3,1) forwards;}
+@keyframes desenhar{to{stroke-dashoffset:0;}}
+.selo__txt{
+  position:absolute;inset:0;display:grid;place-content:center;
+  line-height:1;
+}
+.selo__txt em{
+  display:block;font-family:var(--display);font-weight:600;font-style:normal;
+  font-size:26px;color:var(--cobre-900);
+}
+.selo__txt small{
+  display:block;font-family:var(--sans);font-weight:700;
+  font-size:8.5px;letter-spacing:.24em;text-transform:uppercase;
+  color:var(--cobre-900);margin-top:3px;
+}
+.garantia__txt{display:grid;gap:16px;margin-top:22px;}
+.garantia__txt p{font-size:15.5px;line-height:1.72;color:var(--tinta-soft);}
+.garantia__fecho{font-weight:500;color:var(--tinta) !important;}
+
+/* ============================================================
+   SEÇÃO 11 — FAQ
+   Progressive Reveal + Accordion + Hover Underline + Low Contrast
+   ============================================================ */
+.faq{background:var(--cinza);padding:56px 20px 60px;}
+.faq__inner{max-width:820px;margin-inline:auto;}
+.faq .sec__head{margin-bottom:36px;}
+
+.faq__item{border-bottom:1px solid #D0D0D0;}
+.faq__item:first-child{border-top:1px solid #D0D0D0;}
+.faq__item h3{margin:0;}
+.faq__q{
+  width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;
+  padding:19px 0;min-height:44px;
+  background:none;border:0;text-align:left;cursor:pointer;
+  font-family:var(--sans);font-weight:700;font-size:15px;line-height:1.5;
+  color:var(--tinta);
+  transition:color .26s ease;
+}
+.faq__q:hover{color:var(--cobre-900);}
+.faq__q:focus-visible{outline:2px solid var(--cobre-700);outline-offset:3px;}
+.faq__q[aria-expanded="true"]{color:var(--cobre-900);}
+.faq__chevron{flex:none;color:#8A8A8A;transition:transform .3s ease, color .3s ease;}
+.faq__q:hover .faq__chevron{color:var(--cobre-700);}
+.faq__q[aria-expanded="true"] .faq__chevron{transform:rotate(180deg);color:var(--cobre-700);}
+.faq__item:has(.faq__q[aria-expanded="true"]){border-bottom-color:var(--cobre-700);}
+
+.faq__a{
+  max-height:0;overflow:hidden;opacity:0;
+  transition:max-height .34s cubic-bezier(.25,.8,.3,1), opacity .24s ease;
+}
+.faq__a.is-open{opacity:1;transition-delay:0s, .06s;}
+.faq__a p{
+  padding:0 0 24px;font-size:15px;line-height:1.72;
+  color:var(--tinta-soft);max-width:40rem;
+}
+
+/* ============================================================
+   SEÇÃO 12 — CTA FINAL
+   Type Hero + Gradiente Radial + Pulse Loop + Container Narrow
+   ============================================================ */
+.final{position:relative;background:var(--preto);padding:64px 20px 72px;overflow:hidden;}
+.final::before{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(60% 55% at 50% 8%, rgba(181,110,71,.20), transparent 66%),
+    radial-gradient(50% 40% at 50% 100%, rgba(0,216,47,.09), transparent 70%);
+}
+.final__inner{position:relative;z-index:2;max-width:720px;margin-inline:auto;text-align:center;}
+.final__titulo{
+  font-family:var(--display);font-weight:400;text-transform:uppercase;
+  font-size:clamp(1.55rem,5.2vw,2.85rem);
+  line-height:1.22;letter-spacing:.004em;
+  color:#fff;text-wrap:balance;
+}
+.final__titulo span{display:block;color:var(--cobre-500);}
+.final__txt{display:grid;gap:16px;margin-top:32px;}
+.final__txt p{
+  font-size:15.5px;line-height:1.72;color:var(--tinta-inv-soft);
+  max-width:34rem;margin-inline:auto;
+}
+.final__ultima{font-weight:500;color:var(--tinta-inv) !important;}
+.final .btn{margin-top:40px;}
+.final__micro{font-size:13px;color:#9A9A9A;margin-top:14px;}
+
+/* Pulse Loop no CTA final */
+@keyframes respirar{
+  0%,100%{box-shadow:0 10px 26px -14px rgba(0,150,33,.9), 0 0 0 0 rgba(0,216,47,.30);}
+  50%    {box-shadow:0 10px 26px -14px rgba(0,150,33,.9), 0 0 0 12px rgba(0,216,47,0);}
+}
+.final .btn{animation:respirar 3.2s ease-out 1.2s infinite;}
+.final .btn:hover{animation-play-state:paused;}
+
+/* ============================================================
+   RODAPÉ
+   ============================================================ */
+.rodape{background:var(--grafite);padding:40px 20px 108px;}
+.rodape__grid{display:grid;gap:24px;justify-items:center;text-align:center;}
+.rodape__logo{height:42px;width:auto;}
+.rodape__id{font-weight:500;font-size:13.5px;line-height:1.7;color:#D6D6D6;}
+.rodape__disclaimer{
+  font-size:12px;line-height:1.65;color:#A5A5A5;
+  max-width:52rem;margin-top:14px;
+}
+.rodape__links{
+  margin-top:20px;padding-top:20px;
+  border-top:1px solid rgba(255,255,255,.12);
+  font-size:12.5px;color:#C4C4C4;
+}
+.rodape__links a{color:#C4C4C4;text-decoration:none;}
+.rodape__links a:hover{color:#fff;text-decoration:underline;}
+.rodape__links a:focus-visible{outline:2px solid var(--cobre-500);outline-offset:2px;}
+.rodape__links span{margin:0 8px;}
+
+/* ============================================================
+   RESPONSIVO
+   No mobile a ordem do DOM entrega headline + CTA antes da mídia.
+   ============================================================ */
+@media (max-width:767px){
+  .hero{padding-top:.7rem;}
+  .hero__logo{height:48px;}
+  .hero__crm{font-size:.6rem;letter-spacing:.12em;}
+  .hero__sub{font-size:.92rem;margin-bottom:1.4rem;}
+  .btn{width:100%;padding:.98rem 1.3rem;}
+  .hero__grid{gap:1.7rem;}
+  .credband{margin-top:2rem;padding-bottom:1.9rem;}
+  .stickybar{width:auto;left:.8rem;right:.8rem;padding:.5rem .5rem .5rem 1rem;}
+  .stickybar__info{white-space:normal;font-size:.76rem;line-height:1.35;}
+  .stickybar .btn{width:auto;flex:none;}
+  .why{padding:3.4rem 1.35rem 3.8rem;}
+  .cycle{padding-left:.7rem;}
+  .cycle__step{gap:.9rem;}
+  /* Bleed Left contido: o número sai da coluna, mas não encosta na borda */
+  .cycle__num{width:2.4rem;height:2.4rem;font-size:.95rem;margin-left:-1.2rem;}
+  .why__head{margin-bottom:2.3rem;}
+
+  /* S4 — no mobile o bento vira lista: sem contraste de tamanho, o fundo
+     creme do card do prato viraria destaque arbitrário */
+  .pilar--grande{background:var(--branco);}
+  .pilar__titulo{font-size:18px;}
+
+  /* S5 — régua horizontal compacta, marcas flexíveis */
+  .regua{height:48px;gap:4px;}
+  .regua__dia{font-size:10px;padding:0 2px;}
+  .passo p{font-size:15.5px;}
+
+  /* S6 */
+  .entra__item{grid-template-columns:38px 1fr;gap:0 12px;}
+  .entra__num{font-size:16px;}
+
+  /* S9 */
+  .preco__num{font-size:52px;}
+  .preco__card .btn,.final .btn,.autor__texto .btn{width:100%;}
+  .final .btn{padding:17px 24px;}
+
+  /* S11 */
+  .faq__q{padding:19px 0;font-size:15px;}
+  .faq__chevron{width:16px;height:16px;}
+
+  /* S12 */
+  .final__txt p{font-size:15.5px;}
+}
+
+@media (min-width:768px){
+  .credband{grid-template-columns:repeat(3,1fr);gap:2.4rem;}
+  .credband__item{position:relative;padding-left:1.5rem;}
+  .credband__item::before{
+    content:'';position:absolute;left:0;top:.2rem;bottom:.2rem;
+    width:1px;background:rgba(255,255,255,.16);
+  }
+
+  /* ---- seções: padding intermediário ---- */
+  .pilares,.pratica,.entra,.autor,.preco,.faq{padding:72px 28px 76px;}
+  .garantia{padding:68px 28px 72px;}
+  .final{padding:84px 28px 92px;}
+  .filtro__head{padding:72px 28px 40px;}
+  .filtro__col{padding:56px 32px 64px;}
+  .rodape{padding:48px 28px 52px;}
+
+  .sec__head{margin-bottom:44px;}
+  .sec__cta{margin-top:48px;}
+
+  /* S4 — bento em 2 colunas, o prato ocupa a linha inteira */
+  .bento{grid-template-columns:repeat(2,1fr);gap:18px;}
+  .pilar{padding:30px 26px;}
+  .pilar--grande{grid-column:span 2;background:#F7F3EF;}
+  .pilar--grande .pilar__titulo{font-size:24px;}
+  .pilar__ico{width:38px;height:38px;}
+  .pilar__titulo{font-size:20px;}
+  .pilares__fecho{padding:28px 24px;}
+
+  /* S5 */
+  .passos{gap:36px;}
+  .passo--recado{padding:24px 26px;}
+
+  /* S6 — Asymmetric Padding: respiro só à esquerda */
+  .entra__item{grid-template-columns:64px 1fr;gap:0 24px;padding:26px 0 26px 8px;}
+  .entra__num{font-size:20px;}
+  .entra__item h3{font-size:16px;}
+  .entra__item p{font-size:15px;}
+
+  /* S7 */
+  .filtro__titulo{font-size:22px;margin-bottom:28px;}
+  .filtro__lista{gap:20px;}
+  .filtro__lista li{font-size:15.5px;}
+
+  /* S8 */
+  .autor__texto{padding-top:36px;}
+
+  /* S9 */
+  .preco__card{padding:52px 48px 44px;}
+  .preco__num{font-size:76px;}
+  .preco__lanche{font-size:18px;}
+  .preco__comparativo{margin-bottom:44px;}
+  .preco__comparativo p{font-size:16px;}
+
+  /* S10 */
+  .selo{width:88px;height:88px;}
+  .selo__txt em{font-size:30px;}
+  .garantia__txt p{font-size:16px;}
+
+  /* S11 */
+  .faq__q{padding:22px 0;font-size:15.5px;}
+  .faq__a p{font-size:15.5px;}
+
+  /* S12 */
+  .final__txt p{font-size:16.5px;}
+
+  /* Rodapé */
+  .rodape__grid{grid-template-columns:auto 1fr;gap:44px;justify-items:start;text-align:left;}
+  .rodape__logo{height:48px;}
+}
+
+@media (min-width:960px){
+  body{font-size:17px;}
+  .hero{padding:1.5rem 2rem 0;}
+  .hero__bar{padding-bottom:1.6rem;}
+  .hero__logo{height:72px;}
+  .hero__grid{grid-template-columns:1.1fr 1fr;gap:3.8rem;}
+  .hero__text{padding:1rem 0 2.4rem;}
+  .vsl{padding:12px;max-width:330px;}
+  .why{padding:6.2rem 2rem 6.6rem;}
+  .why__inner{max-width:820px;}
+
+  /* ---- seções: padding cheio ---- */
+  .pilares,.pratica,.entra,.autor,.preco,.faq{padding:100px 32px 106px;}
+  .garantia{padding:88px 32px 92px;}
+  .final{padding:108px 32px 116px;}
+  .filtro__head{padding:100px 32px 48px;}
+  .filtro__col{padding:72px 56px 80px;}
+  .rodape{padding:52px 32px 44px;}
+  .sec__head{margin-bottom:52px;}
+
+  /* S4 — bento em 6 colunas. As larguras acompanham o volume de texto de
+     cada pilar, então as duas linhas fecham sem buraco vertical.
+     Com o prato em 2x2 sobrava ~430px de vazio dentro do card. */
+  .bento{grid-template-columns:repeat(6,1fr);gap:20px;}
+  .pilar{padding:32px 28px;}
+  .pilar--grande{grid-column:span 3;background:#F7F3EF;}  /* prato  */
+  .pilar--larga {grid-column:span 3;}                     /* treino */
+  .pilar--ampla {grid-column:span 4;}                     /* sono   */
+  .pilar--curta {grid-column:span 2;}                     /* água   */
+  .pilar--grande .pilar__titulo{font-size:24px;}
+  .pilar__ico{width:40px;height:40px;}
+
+  /* S5 — régua vertical sticky à esquerda */
+  .pratica__grid{grid-template-columns:300px 1fr;gap:72px;align-items:start;}
+  .pratica__aside{position:sticky;top:120px;}
+  .pratica__aside .sec__title{text-align:left;}
+  .regua{
+    position:static;flex-direction:column;align-items:flex-start;justify-content:flex-start;
+    height:auto;gap:12px;margin:32px 0 0;padding:0;background:none;box-shadow:none;
+  }
+  /* na vertical as marcas voltam a ter largura fixa */
+  .regua__marca{flex:none;width:28px;max-width:none;height:2px;}
+  .regua__marca--borda{width:36px;height:2px;}
+  .regua__dia{padding:2px 0;}
+  .passos{gap:44px;}
+  .passo__num{font-size:28px;min-width:32px;}
+  .passo{gap:18px;}
+
+  /* S6 — duas colunas, sem quebrar item no meio */
+  .entra__lista{display:grid;grid-template-columns:repeat(2,1fr);column-gap:64px;}
+  .entra__lista .entra__item:nth-child(2){border-top:1px solid #E4E4E4;}
+
+  /* S7 — Clip-path: a divisa entre as colunas é diagonal, não reta */
+  .filtro__split{grid-template-columns:1fr 1fr;}
+  .filtro__col--escuro{
+    clip-path:polygon(3.2% 0, 100% 0, 100% 100%, 0 100%);
+    margin-left:-3.2%;
+    padding-left:calc(56px + 3.2%);
+  }
+
+  /* S8 — Overlapping Grid: o texto invade a foto */
+  .autor__grid{grid-template-columns:.86fr 1.14fr;align-items:center;}
+  .autor__foto{max-width:none;margin:0;}
+  .autor__texto{margin-left:-64px;z-index:2;padding:56px 0 56px 64px;}
+  .autor__texto p{font-size:16px;}
+  .autor__destaque{font-size:17.5px !important;}
+
+  /* S12 */
+  .final__titulo{line-height:1.22;}
+}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms !important;transition-duration:.001ms !important;}
+  html{scroll-behavior:auto;}
+  /* o anel da garantia já nasce fechado e o CTA final não pulsa */
+  .selo__anel{stroke-dashoffset:0 !important;}
+  .final .btn{animation:none !important;}
+}
