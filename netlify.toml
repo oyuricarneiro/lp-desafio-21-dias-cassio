@@ -12,6 +12,17 @@
   [headers.values]
     Cache-Control = "public, max-age=0, must-revalidate"
 
+# Os globs da raiz (/*.css) não casam subpath. A V2 precisa dos seus próprios.
+[[headers]]
+  for = "/v2/*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+  for = "/v2/*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
 [[headers]]
   for = "/images/*"
   [headers.values]
