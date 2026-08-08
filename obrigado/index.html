@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Compra confirmada | Desafio 21 Dias — Dr. Cássio Siqueira</title>
+<meta name="description" content="Sua compra do Desafio 21 Dias está confirmada. O acesso vai para o seu e-mail. Comece pela tarefa do dia 1, hoje.">
+
+<!-- Página de pós-compra: nunca deve ser indexada. Esta meta fica para sempre. -->
+<meta name="robots" content="noindex, nofollow">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="/obrigado/style.css?v=1">
+<link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+</head>
+<body>
+
+<!-- ============ BARRA DE MARCA ============
+     Igual à da V1/V2 de propósito: a leitora acabou de sair de lá.       -->
+<header class="topo">
+  <div class="topo__inner">
+    <img class="topo__logo" src="/.netlify/images?url=/images/logo-cassio.png&w=200&q=90" alt="Dr. Cássio Siqueira" width="46" height="55" loading="eager" decoding="async">
+    <span class="topo__crm">Médico · CRM SP 233647</span>
+  </div>
+</header>
+
+<!-- ============ BLOCO 1: CONFIRMAÇÃO ============
+     Arquétipo: Framed Content. O documento dela, não mais uma peça de venda.
+     Constraints: Rotated/Off-Grid (carimbo) + Noise Texture (papel) + Selective Color.
+     SEM animação de entrada: nada de opacity:0, nada de transform, nada de AOS.  -->
+<section class="conf">
+  <div class="conf__doc">
+
+    <span class="conf__carimbo" aria-hidden="true">
+      <svg viewBox="0 0 120 120" width="120" height="120">
+        <defs>
+          <!-- arco inferior, lido da esquerda para a direita -->
+          <path id="arco" d="M16.5,60 a43.5,43.5 0 0,0 87,0"/>
+        </defs>
+        <circle cx="60" cy="60" r="47" fill="none" stroke="currentColor" stroke-width="1.4"/>
+        <circle cx="60" cy="60" r="40" fill="none" stroke="currentColor" stroke-width=".7" opacity=".45"/>
+        <path d="M45.5 60.5 L55.5 70 L75 48" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="square"/>
+        <text class="conf__carimbo-txt" fill="currentColor">
+          <textPath href="#arco" startOffset="50%" text-anchor="middle">CONFIRMADO</textPath>
+        </text>
+      </svg>
+    </span>
+
+    <p class="eyebrow eyebrow--dark">Compra confirmada</p>
+
+    <h1 class="conf__titulo">
+      Pronto.
+      <span>O Desafio 21 Dias é seu.</span>
+    </h1>
+
+    <div class="conf__acesso">
+      <span class="conf__rotulo">Acesso</span>
+      <p>
+        Está indo para o seu <strong>e-mail</strong> agora. Se não chegar em alguns minutos,
+        olha o spam e o promoções, é onde ele costuma cair.
+      </p>
+    </div>
+
+    <p class="conf__dentro">
+      Dentro você encontra o guia com as 21 tarefas, as cinco aulas comigo
+      e os treinos de 20 minutos para fazer em casa.
+    </p>
+
+    <p class="conf__ponte">
+      Você acabou de comprar a coisa certa. Agora deixa eu te falar do primeiro dia,
+      e depois de uma coisa que não estava na página.
+    </p>
+
+  </div>
+</section>
+
+<!-- ============ BLOCO 2: A TAREFA 1 É HOJE ============
+     Arquétipo: Split Assimétrico (≠ do Framed Content acima).
+     Constraints: Type as Image (o numeral em Cinzel) + Bleed Left + Color Blocking.
+     A única instrução da página. Nada compete visualmente com ela.          -->
+<section class="tarefa" id="tarefa">
+  <div class="tarefa__grid">
+
+    <p class="tarefa__n" aria-hidden="true">1</p>
+
+    <div class="tarefa__txt">
+      <h2 class="t-sec" data-aos="fade-up">
+        A primeira tarefa leva menos de 15 minutos. Faz hoje.
+      </h2>
+
+      <p data-aos="fade-up" data-aos-delay="60">
+        Eu insisto nisso com todo paciente e vou insistir com você agora.
+      </p>
+
+      <p data-aos="fade-up" data-aos-delay="90">
+        A diferença entre quem termina os 21 dias e quem para no dia 4 não é motivação.
+        É se a pessoa fez a tarefa do dia 1 no mesmo dia em que comprou,
+        ou se deixou para começar na segunda.
+      </p>
+
+      <p class="tarefa__punch" data-aos="fade-up" data-aos-delay="120">
+        Segunda-feira é onde os seus outros começos morreram.
+        Não vamos entregar esse aqui para ela também.
+      </p>
+
+      <p data-aos="fade-up" data-aos-delay="150">
+        Abre o e-mail, entra no guia e faz a tarefa 1.
+        Leva menos tempo do que você levou lendo até aqui.
+      </p>
+
+      <a class="tarefa__link" href="#virada" data-aos="fade-up" data-aos-delay="180">
+        Já fiz, quero continuar lendo
+        <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M12 4v14m0 0l-6-6m6 6l6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- Demonstração de design: os blocos 3 a 11 entram no /lp-desenvolver. -->
+<div class="demo-nota">
+  Demonstração de design — Bloco 1 e Bloco 2. Os blocos 3 a 11 da <code>copy.md</code> ainda não foram construídos.
+</div>
+
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script src="/obrigado/script.js?v=1"></script>
+</body>
+</html>

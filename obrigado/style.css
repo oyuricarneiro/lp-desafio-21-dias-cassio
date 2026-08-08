@@ -1,0 +1,290 @@
+/* ============================================================
+   Desafio 21 Dias — Página de obrigado (upsell da consulta)
+   Dr. Cássio Siqueira · CRM SP 233647
+
+   Fontes: Cinzel (display) + Montserrat (corpo).
+   Origem: fontes REAIS da marca, extraídas de drcassiosiqueira.com.br.
+   Cinzel é o equivalente Google Fonts da "Cresci LP W01", licenciada
+   (no site oficial ela carrega com status error). Montserrat é da marca,
+   usada como está. Mesmo par da V1 e da V2 — a leitora acabou de sair de lá,
+   e os arquivos já vêm do cache do navegador dela.
+
+   Paleta da marca: preto #121212, verde do CTA #00D82F→#007F1C,
+   faixa clara #E8E8E8, cobre #B56E47.
+
+   DIREÇÃO DESTA PÁGINA
+   A página de vendas é escura porque vende. Esta é de papel, porque
+   a leitora já está do lado de dentro e isto aqui é o documento dela.
+   A virada para o escuro fica guardada para o Bloco 3, que é onde a copy
+   pede a mudança de temperatura — e só funciona se a página não começar lá.
+   ============================================================ */
+
+:root{
+  --preto:#121212;
+  --preto-2:#1B1B1B;
+  --cinza:#E8E8E8;
+  --branco:#FFFFFF;
+  --creme:#F7F3EF;
+
+  --verde-1:#00D82F;
+  --verde-2:#007F1C;
+  --verde-carimbo:#0A7A22;   /* verde legível sobre papel; o #00D82F some no branco */
+
+  --cobre-900:#7A4529;
+  --cobre-700:#B56E47;
+  --cobre-500:#C8926B;
+  --cobre-300:#CEA98A;
+
+  --tinta:#141414;
+  --tinta-soft:#5A5A5A;
+
+  --display:'Cinzel', Georgia, serif;
+  --sans:'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  --wrap:1080px;
+  --r:5px;
+
+  /* Grão de papel. SVG inline, zero requisição extra. */
+  --grao:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.82' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.42'/%3E%3C/svg%3E");
+}
+
+*,*::before,*::after{box-sizing:border-box;}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;}
+body{
+  margin:0;background:var(--creme);color:var(--tinta);
+  font-family:var(--sans);font-size:16px;line-height:1.7;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+img{max-width:100%;display:block;}
+h1,h2,h3{margin:0;font-weight:400;}
+p{margin:0;}
+
+.eyebrow{
+  font-family:var(--sans);font-size:10.9px;font-weight:700;
+  letter-spacing:.28em;text-transform:uppercase;color:var(--cobre-500);
+  margin-bottom:14px;
+}
+.eyebrow--dark{color:var(--cobre-900);}
+
+.t-sec{
+  font-family:var(--display);font-weight:400;text-transform:uppercase;
+  font-size:clamp(1.3rem,4.4vw,2.15rem);
+  line-height:1.26;letter-spacing:.004em;text-wrap:balance;color:var(--tinta);
+}
+
+/* ============================================================
+   BARRA DE MARCA
+   ============================================================ */
+.topo{background:var(--preto);padding:9px 20px;}
+.topo__inner{
+  max-width:var(--wrap);margin-inline:auto;
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+}
+.topo__logo{height:38px;width:auto;}
+.topo__crm{
+  font-size:9.8px;font-weight:600;letter-spacing:.14em;
+  text-transform:uppercase;color:#B0B0B0;
+}
+
+/* ============================================================
+   BLOCO 1 — CONFIRMAÇÃO
+   Framed Content + carimbo off-grid + grão de papel.
+   Nada aqui pode ter opacity:0, transform de entrada ou data-aos.
+   ============================================================ */
+.conf{
+  position:relative;
+  padding:26px 20px 34px;
+  background:
+    radial-gradient(120% 78% at 50% 0%, rgba(181,110,71,.10), transparent 62%),
+    var(--creme);
+}
+/* o grão vive numa camada própria para não sujar o texto */
+.conf::after{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background-image:var(--grao);opacity:.30;mix-blend-mode:multiply;
+}
+
+.conf__doc{
+  position:relative;z-index:2;
+  max-width:660px;margin-inline:auto;
+  background:var(--branco);
+  padding:30px 24px 30px;
+  border:1px solid rgba(181,110,71,.42);
+  box-shadow:0 22px 46px -34px rgba(20,20,20,.5);
+}
+/* filete interno: a moldura dupla do receituário */
+.conf__doc::before{
+  content:'';position:absolute;inset:5px;pointer-events:none;
+  border:1px solid rgba(181,110,71,.18);
+}
+
+/* ---------- o carimbo ----------
+   Girado e transbordando o canto: é um objeto pousado sobre o documento,
+   não um badge de sucesso dentro de um card.                              */
+.conf__carimbo{
+  position:absolute;z-index:3;
+  top:-24px;right:-10px;
+  width:88px;height:88px;
+  transform:rotate(-8deg);
+  transform-origin:center;
+  color:var(--verde-carimbo);   /* o SVG inteiro herda por currentColor */
+}
+.conf__carimbo svg{width:100%;height:100%;display:block;}
+/* 10 letras num semicírculo de r=43,5 (≈137 unidades de arco):
+   qualquer coisa acima de ~10px + .18em encavala. */
+.conf__carimbo-txt{
+  font-family:var(--display);font-size:10px;font-weight:600;
+  letter-spacing:.18em;
+}
+/* halo pós-carregamento. Roda numa pseudo, nunca no conteúdo:
+   o carimbo em si nasce visível e parado. */
+.conf__carimbo::before{
+  content:'';position:absolute;inset:0;border-radius:50%;
+  border:1px solid rgba(10,122,34,.55);
+  animation:halo 4.2s ease-out 1.2s infinite;
+}
+@keyframes halo{0%{transform:scale(.78);opacity:0;}22%{opacity:.7;}70%,100%{transform:scale(1.16);opacity:0;}}
+
+.conf__titulo{
+  font-family:var(--display);font-weight:400;text-transform:uppercase;
+  font-size:clamp(1.32rem,6vw,2.4rem);
+  line-height:1.2;letter-spacing:.006em;color:var(--tinta);text-wrap:balance;
+}
+.conf__titulo span{display:block;color:var(--cobre-900);}
+
+/* ---------- o acesso: a dúvida imediata de quem acabou de pagar ---------- */
+.conf__acesso{
+  display:grid;grid-template-columns:auto 1fr;gap:0 16px;align-items:baseline;
+  margin:22px 0 20px;padding:16px 0 0;
+  border-top:1px dashed rgba(181,110,71,.55);
+}
+.conf__rotulo{
+  font-size:9.6px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--cobre-900);white-space:nowrap;
+  padding-top:5px;
+}
+.conf__acesso p{font-size:15.5px;line-height:1.66;color:var(--tinta-soft);}
+.conf__acesso strong{color:var(--tinta);font-weight:700;}
+
+.conf__dentro{
+  font-size:15.5px;line-height:1.7;color:var(--tinta-soft);
+}
+.conf__ponte{
+  margin-top:18px;padding-top:16px;
+  border-top:1px solid rgba(20,20,20,.1);
+  font-family:var(--display);text-transform:uppercase;
+  font-size:clamp(.95rem,3.1vw,1.16rem);line-height:1.42;
+  color:var(--tinta);
+}
+
+/* ============================================================
+   BLOCO 2 — A TAREFA 1 É HOJE
+   Split assimétrico. O numeral é o elemento gráfico da seção,
+   sangrando a margem esquerda. Color blocking na faixa cinza.
+   ============================================================ */
+.tarefa{
+  position:relative;background:var(--cinza);
+  padding:44px 20px 50px;overflow:hidden;
+}
+.tarefa__grid{
+  position:relative;
+  max-width:760px;margin-inline:auto;
+}
+
+.tarefa__n{
+  position:absolute;z-index:0;
+  top:-46px;left:-30px;
+  font-family:var(--display);font-weight:600;
+  font-size:210px;line-height:.72;
+  color:var(--cobre-700);opacity:.13;
+  user-select:none;pointer-events:none;
+}
+
+.tarefa__txt{
+  position:relative;z-index:2;
+  display:grid;gap:16px;
+}
+.tarefa__txt p{font-size:15.8px;line-height:1.72;color:#4C4C4C;}
+.tarefa__txt .t-sec{margin-bottom:4px;}
+
+.tarefa__punch{
+  font-family:var(--display) !important;text-transform:uppercase;
+  font-size:clamp(1rem,3.3vw,1.32rem) !important;line-height:1.36 !important;
+  color:var(--tinta) !important;
+  padding-left:18px;border-left:2px solid var(--cobre-700);
+  margin-block:6px;
+}
+
+/* CTA secundário. Âncora, não venda: peso de link, não de botão. */
+.tarefa__link{
+  justify-self:start;margin-top:10px;
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:12.6px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;
+  color:var(--cobre-900);text-decoration:none;
+  padding-bottom:5px;border-bottom:1px solid rgba(122,69,41,.42);
+  transition:color .22s ease, border-color .22s ease, gap .22s ease;
+}
+.tarefa__link svg{transition:transform .22s ease;}
+.tarefa__link:hover{color:var(--tinta);border-color:var(--tinta);gap:11px;}
+.tarefa__link:hover svg{transform:translateY(2px);}
+.tarefa__link:focus-visible{outline:2px solid var(--cobre-700);outline-offset:4px;}
+
+/* ============================================================
+   Aviso da demonstração — sai no /lp-desenvolver
+   ============================================================ */
+.demo-nota{
+  background:var(--preto-2);color:#8E8E8E;
+  font-size:11.5px;line-height:1.6;letter-spacing:.02em;
+  text-align:center;padding:16px 20px;
+}
+.demo-nota code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--cobre-300);}
+
+/* ============================================================
+   RESPONSIVO
+   ============================================================ */
+@media (max-width:399px){
+  /* iPhone SE e afins: a dobra tem que fechar sem scroll */
+  .conf{padding:20px 14px 26px;}
+  .conf__doc{padding:26px 18px 26px;}
+  .conf__carimbo{width:74px;height:74px;top:-20px;right:-6px;}
+  .tarefa__n{font-size:168px;top:-36px;left:-22px;}
+}
+
+@media (min-width:768px){
+  .topo{padding:12px 28px;}
+  .topo__logo{height:46px;}
+  .conf{padding:52px 28px 64px;}
+  .conf__doc{padding:52px 54px 48px;}
+  .conf__titulo{max-width:14ch;}   /* no desktop a linha precisa de freio */
+  .conf__carimbo{width:112px;height:112px;top:-34px;right:-34px;}
+  .conf__acesso{margin:30px 0 24px;padding-top:20px;gap:0 22px;}
+  .conf__acesso p,.conf__dentro{font-size:16.5px;}
+  .conf__ponte{margin-top:24px;padding-top:22px;}
+  .tarefa{padding:76px 28px 84px;}
+  .tarefa__txt p{font-size:16.5px;}
+  .tarefa__n{font-size:300px;top:-70px;left:-56px;}
+}
+
+@media (min-width:960px){
+  body{font-size:17px;}
+  .conf{padding:64px 32px 80px;}
+  .conf__doc{padding:60px 66px 56px;}
+  .conf__carimbo{width:126px;height:126px;top:-40px;right:-46px;}
+
+  /* o numeral sai do texto e vira coluna própria, sangrando a margem */
+  .tarefa{padding:104px 32px 112px;}
+  .tarefa__grid{
+    display:grid;grid-template-columns:auto 1fr;gap:0 54px;align-items:start;
+  }
+  .tarefa__n{
+    position:static;opacity:1;color:var(--cobre-300);
+    font-size:clamp(220px,19vw,286px);line-height:.66;
+    margin-left:-72px;margin-top:-16px;
+  }
+  .tarefa__txt{max-width:44rem;}
+}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms !important;transition-duration:.001ms !important;}
+  html{scroll-behavior:auto;}
+}
