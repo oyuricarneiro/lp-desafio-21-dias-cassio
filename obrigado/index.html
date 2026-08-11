@@ -13,7 +13,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="/obrigado/style.css?v=1">
+<link rel="stylesheet" href="/obrigado/style.css?v=2">
 <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
 </head>
 <body>
@@ -26,6 +26,8 @@
     <span class="topo__crm">Médico · CRM SP 233647</span>
   </div>
 </header>
+
+<main>
 
 <!-- ============ BLOCO 1: CONFIRMAÇÃO ============
      Arquétipo: Framed Content. O documento dela, não mais uma peça de venda.
@@ -120,12 +122,401 @@
   </div>
 </section>
 
-<!-- Demonstração de design: os blocos 3 a 11 entram no /lp-desenvolver. -->
-<div class="demo-nota">
-  Demonstração de design — Bloco 1 e Bloco 2. Os blocos 3 a 11 da <code>copy.md</code> ainda não foram construídos.
-</div>
+<!-- ============ BLOCO 3: A VIRADA ============
+     Arquétipo: Spotlight. Constraints: Dark Mode + Container Narrow + Clip Reveal + Vignette.
+     A dobradiça da página. Corte seco, sem diagonal e sem borda arredondada:
+     a mudança de temperatura tem que ser sentida, não decorada.             -->
+<section class="virada" id="virada" aria-labelledby="virada-t">
+  <div class="col col--estreita">
+
+    <h2 class="t-sec t-sec--inv" id="virada-t" data-aos="fade-up">
+      Agora a parte que eu não coloquei na página de vendas.
+    </h2>
+
+    <div class="virada__txt">
+      <p data-aos="fade-up" data-aos-delay="60">
+        Você comprou os 21 dias para levantar a Fundação.
+        Prato, treino, sono e água, na ordem, uma coisa por dia.
+      </p>
+      <p data-aos="fade-up" data-aos-delay="90">
+        Para uma parte das pessoas, isso basta. A Fundação de pé destrava o processo
+        e o corpo volta a responder. Foi assim que eu montei o desafio e é assim que ele funciona.
+      </p>
+      <p data-aos="fade-up" data-aos-delay="120">
+        Para outra parte, existe algo atrás.
+      </p>
+    </div>
+
+    <ul class="virada__lista" data-aos="fade-up" data-aos-delay="150">
+      <li>Um quadro hormonal que está fora e ninguém investigou.</li>
+      <li>Uma resistência à insulina que já pede tratamento.</li>
+      <li>Uma tireoide que o exame de rotina passou batido.</li>
+      <li>Um caso em que a medicação bem indicada acelera e protege o processo em vez de atrapalhar.</li>
+    </ul>
+
+    <p class="virada__ponte" data-aos="fade-up" data-aos-delay="60">E aqui está o incômodo:</p>
+
+    <div class="virada__foco" id="virada-foco">
+      <p class="virada__punch">
+        você só descobre em qual das duas partes você está fazendo exame.
+      </p>
+    </div>
+
+    <p class="virada__fecha" data-aos="fade-up" data-aos-delay="80">
+      Sem isso, o caminho é executar as 21 tarefas, chegar no dia 21 e aí sim descobrir.
+      O que também funciona. Só é mais devagar.
+    </p>
+
+  </div>
+</section>
+
+<!-- ============ BLOCO 4: VÍDEO ============
+     Arquétipo: Nested Frames. Constraints: Imagem com Overlay + Overlap Elements + Hover Reveal.
+     16:9 horizontal, menor, com moldura e rótulo de aula — o oposto da VSL 9:16
+     da página de vendas. Um segundo vídeo no mesmo formato denunciaria a venda.
+     Cola no Bloco 3: os dois são um movimento só.                          -->
+<section class="tv" aria-label="Trecho da última aula do desafio">
+  <div class="col col--media">
+
+    <div class="tv__moldura" data-aos="fade-up">
+      <span class="tv__placa">Trecho da última aula do desafio</span>
+
+      <button class="tv__frame" type="button"
+              data-video="/video/aula5-corte-obrigado.mp4"
+              data-vtt="/video/aula5-legendas.vtt"
+              aria-label="Assistir o trecho da última aula do desafio, 35 segundos">
+        <img class="tv__poster" src="/.netlify/images?url=/images/poster-aula5.jpg&w=760&q=82" alt="Dr. Cássio Siqueira sentado em uma poltrona, falando para a câmera" width="760" height="428" loading="lazy" decoding="async">
+        <span class="tv__play" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="24" height="24"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg>
+        </span>
+        <span class="tv__dur" aria-hidden="true">00:35</span>
+      </button>
+    </div>
+
+    <p class="tv__cred" data-aos="fade-up" data-aos-delay="120">
+      Dr. Cássio Siqueira <span aria-hidden="true">·</span> Aula 5 do Desafio 21 Dias
+    </p>
+
+  </div>
+</section>
+
+<!-- ============ BLOCO 5: A OFERTA COMO ACELERADOR ============
+     Arquétipo: Editorial. Constraints: Hanging Indent + Mixed Weights + Light Mode.
+     Lista de cláusulas de documento. Sem ícone de check, sem card.          -->
+<section class="acel sec" aria-labelledby="acel-t">
+  <div class="col col--doc">
+
+    <header class="sec__head">
+      <h2 class="t-sec" id="acel-t" data-aos="fade-up">
+        Você pode fazer os 21 dias já sabendo o que o seu exame diz.
+      </h2>
+    </header>
+
+    <div class="acel__abre" data-aos="fade-up" data-aos-delay="60">
+      <p>
+        A ordem óbvia seria fazer o desafio e, se não resolver, marcar consulta depois.
+        Funciona. É o que a maioria vai fazer, e está tudo bem.
+      </p>
+      <p>
+        Só que existe uma ordem melhor, e ela não custa mais tempo:
+        investigar agora, e fazer os 21 dias com a informação na mão.
+      </p>
+    </div>
+
+    <p class="acel__ponte" data-aos="fade-up" data-aos-delay="80">Muda três coisas:</p>
+
+    <ol class="acel__lista">
+      <li class="acel__item" data-aos="fade-up">
+        <h3 class="acel__rotulo">Você para de adivinhar.</h3>
+        <p>
+          Em vez de executar as quatro bases no escuro e torcer, você sabe se tem hormônio fora,
+          se tem resistência à insulina, e o que isso exige de diferente na sua execução.
+        </p>
+      </li>
+      <li class="acel__item" data-aos="fade-up" data-aos-delay="70">
+        <h3 class="acel__rotulo">As tarefas ficam ajustadas para o seu corpo.</h3>
+        <p>
+          A conta de proteína, a conta de água e o treino do guia são a régua geral.
+          Com exame na mão eu ajusto a régua para você.
+        </p>
+      </li>
+      <li class="acel__item" data-aos="fade-up" data-aos-delay="140">
+        <h3 class="acel__rotulo">Se tiver algo que precisa de tratamento, começa agora.</h3>
+        <p>Não daqui a três semanas.</p>
+      </li>
+    </ol>
+
+    <p class="acel__fecho" data-aos="fade-up" data-aos-delay="100">
+      Não é um segundo produto para fazer depois do primeiro.
+      É a mesma coisa que você já comprou, feita com investigação por trás.
+    </p>
+
+  </div>
+</section>
+
+<!-- ============ BLOCO 6: O QUE ACONTECE NA CONSULTA ============
+     Arquétipo: Timeline. Constraints: Bleed Both + Draw SVG + Color Blocking.
+     Clareza do entregável mata a objeção invisível.                         -->
+<section class="consulta sec" id="consulta" aria-labelledby="consulta-t">
+  <div class="col col--doc">
+
+    <header class="sec__head">
+      <h2 class="t-sec" id="consulta-t" data-aos="fade-up">O que acontece na consulta</h2>
+    </header>
+
+    <div class="consulta__linha">
+      <span class="consulta__trilho" aria-hidden="true"></span>
+
+      <ol class="consulta__momentos">
+        <li class="consulta__m" data-aos="fade-up" data-aos-delay="120">
+          <span class="consulta__no" aria-hidden="true"></span>
+          <h3 class="consulta__r">Antes</h3>
+          <p>
+            Você recebe o pedido de exames e faz. Se já tiver exames recentes,
+            a gente aproveita e não repete o que não precisa.
+          </p>
+        </li>
+
+        <li class="consulta__m consulta__m--foco" data-aos="fade-up" data-aos-delay="220">
+          <span class="consulta__no" aria-hidden="true"></span>
+          <h3 class="consulta__r">Na consulta</h3>
+          <p>
+            De uma hora a uma hora e meia comigo. Eu leio os seus exames linha por linha,
+            faço a análise de composição corporal e a gente monta o plano em cima do que
+            apareceu, não em cima do que costuma aparecer.
+          </p>
+        </li>
+
+        <li class="consulta__m" data-aos="fade-up" data-aos-delay="320">
+          <span class="consulta__no" aria-hidden="true"></span>
+          <h3 class="consulta__r">Depois</h3>
+          <p>
+            Você sai com o plano escrito e com o desafio ajustado ao seu caso.
+            Se tiver indicação de medicação, ela entra com critério, dose certa e reavaliação.
+            Se não tiver, eu digo que não tem.
+          </p>
+        </li>
+      </ol>
+    </div>
+
+    <p class="consulta__fecho" data-aos="fade-up" data-aos-delay="420">
+      Presencial em São Paulo ou online para todo o Brasil.
+    </p>
+
+  </div>
+</section>
+
+<!-- ============ BLOCO 7: PROVA ============
+     Arquétipo: Isolated Element. Constraints: Off-Grid + Selective Color + Stagger.
+     Sem foto, sem número prometido, sem antes-e-depois.
+     O quarto achado é o ÚNICO item colorido da seção: a cor faz o argumento. -->
+<section class="prova sec" aria-labelledby="prova-t">
+  <div class="col col--nota">
+
+    <h2 class="t-sec" id="prova-t" data-aos="fade-up">
+      O que a investigação encontra que o esforço sozinho não encontra.
+    </h2>
+
+    <p class="prova__p" data-aos="fade-up" data-aos-delay="60">
+      Uma paciente minha de 44 anos chegou com oito anos de efeito sanfona e três
+      nutricionistas diferentes. Ela comia pouco de verdade, eu vi o registro alimentar.
+      Estava convencida de que o problema era ela.
+    </p>
+
+    <p class="prova__p" data-aos="fade-up" data-aos-delay="100">
+      Quando a gente investigou, apareceu o que ninguém tinha olhado.
+    </p>
+
+    <ol class="prova__achados" data-aos="fade-up" data-aos-delay="140">
+      <li>Sono de cinco horas por noite bagunçando a insulina.</li>
+      <li>Quase nenhuma proteína no dia.</li>
+      <li>Zero treino de força.</li>
+      <li>E um quadro hormonal típico da perimenopausa que o exame de rotina dela nunca tinha aprofundado.</li>
+    </ol>
+
+    <p class="prova__p" data-aos="fade-up" data-aos-delay="200">
+      Repara que três dos quatro achados são exatamente as bases do desafio.
+      Ela teria melhorado muito só com a Fundação.
+    </p>
+
+    <p class="prova__punch" data-aos="fade-up" data-aos-delay="260">
+      O quarto não. O quadro hormonal só apareceu porque alguém pediu o exame certo.
+    </p>
+
+    <p class="nota" data-aos="fade-up" data-aos-delay="300">
+      Relato de paciente em acompanhamento médico individualizado.
+      Resultados variam de pessoa para pessoa e dependem de avaliação clínica.
+    </p>
+
+  </div>
+</section>
+
+<!-- ============ BLOCO 8: O PRESENTE ============
+     Arquétipo: Framed Content — rima deliberada com o Bloco 1.
+     O documento do Bloco 1 confirmou o que ela pagou; este devolve.
+     Constraints: Perfuração (mask) + Tabular Nums + Container Narrow.
+     Sem botão aqui: este bloco só ancora o preço.                           -->
+<section class="presente sec" aria-labelledby="presente-t">
+  <div class="recibo" data-aos="fade-up">
+
+    <p class="eyebrow eyebrow--dark">Abatimento</p>
+
+    <h2 class="recibo__t" id="presente-t">Os R$ 47 que você acabou de pagar voltam.</h2>
+
+    <p class="recibo__p">
+      Se você marcar a consulta, o valor do desafio é abatido.
+      Você não paga duas vezes pela mesma decisão.
+    </p>
+
+    <div class="recibo__calc">
+      <p class="recibo__linha">
+        <span class="recibo__rot">A consulta custa</span>
+        <span class="recibo__guia" aria-hidden="true"></span>
+        <span class="recibo__valor">R$ 450</span>
+      </p>
+      <p class="recibo__linha">
+        <span class="recibo__rot">Com o abatimento, sai por</span>
+        <span class="recibo__guia" aria-hidden="true"></span>
+        <span class="recibo__valor recibo__valor--final" id="recibo-final">R$ 400</span>
+      </p>
+    </div>
+
+    <p class="recibo__pos">
+      E o desafio continua seu do mesmo jeito, com os 12 meses de acesso,
+      marque consulta ou não.
+    </p>
+
+  </div>
+</section>
+
+<!-- ============ BLOCO 9: DOIS CAMINHOS ============
+     Arquétipo: Split Vertical. Constraints: Duocromático + simetria forçada + Hover Lift.
+     A coluna de "sozinha" NÃO pode parecer a opção do perdedor: mesmo padding,
+     mesma borda, mesma escala, MESMO delay de animação. Se virar chantagem,
+     o reembolso sobe.                                                       -->
+<section class="caminhos sec" aria-labelledby="caminhos-t">
+  <div class="col col--doc">
+
+    <header class="sec__head">
+      <h2 class="t-sec" id="caminhos-t" data-aos="fade-up">
+        Duas coisas podem acontecer agora, e as duas estão certas.
+      </h2>
+    </header>
+
+    <div class="caminhos__par">
+      <div class="caminho caminho--a" data-aos="fade-up" data-aos-delay="80">
+        <h3 class="caminho__r">Você faz os 21 dias sozinha.</h3>
+        <p>
+          Abre o guia, faz a tarefa de hoje e segue. No dia 21 você vai saber se a Fundação
+          resolveu o seu caso ou se ficou algo. Se ficar, a consulta continua aqui,
+          e o abatimento também. Esse caminho funciona e é o que a maioria vai escolher.
+        </p>
+      </div>
+
+      <div class="caminho caminho--b" data-aos="fade-up" data-aos-delay="80">
+        <h3 class="caminho__r">Ou você investiga agora e faz os 21 dias com o mapa na mão.</h3>
+        <p>
+          Chega mais rápido no mesmo lugar, e se tiver algo que precisa de tratamento,
+          começa hoje em vez de daqui a três semanas.
+        </p>
+        <a class="btn caminho__cta" href="https://wa.me/5511930732424?text=Oi%21%20Acabei%20de%20comprar%20o%20Desafio%2021%20Dias%20e%20quero%20saber%20sobre%20a%20consulta%20com%20o%20Dr.%20C%C3%A1ssio%2C%20com%20o%20abatimento%20dos%20R%24%2047." target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" width="19" height="19" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.86 9.86 0 004.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0012.04 2zm0 18.15h-.01a8.2 8.2 0 01-4.18-1.15l-.3-.18-3.11.82.83-3.04-.2-.31a8.18 8.18 0 01-1.25-4.38c0-4.54 3.7-8.24 8.24-8.24 2.2 0 4.27.86 5.83 2.42a8.19 8.19 0 012.41 5.83c0 4.54-3.7 8.23-8.26 8.23zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.25-.64.81-.79.98-.14.16-.29.18-.54.06-.25-.13-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.51.11-.11.25-.29.37-.43.12-.15.16-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.23.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.17-.47-.29z"/></svg>
+          Quero falar com a equipe sobre a consulta
+        </a>
+      </div>
+    </div>
+
+    <p class="caminhos__fecho" data-aos="fade-up" data-aos-delay="200">
+      Não tem caminho errado aqui. Tem um mais rápido.
+    </p>
+
+  </div>
+</section>
+
+<!-- ============ BLOCO 10: PERGUNTAS ============
+     Arquétipo: Accordion. Constraints: Reveal on Demand + Container Narrow.
+     Três objeções DE UPSELL, não repetição das do desafio.
+     Todas fechadas: a página não puxa ninguém para dentro da venda.        -->
+<section class="faq sec" id="faq" aria-labelledby="faq-t">
+  <div class="col col--estreita">
+
+    <header class="sec__head">
+      <h2 class="t-sec" id="faq-t" data-aos="fade-up">O que costumam me perguntar aqui</h2>
+    </header>
+
+    <div class="faq__lista">
+      <div class="faq__item" data-aos="fade-up">
+        <h3><button class="faq__q" type="button" aria-expanded="false" aria-controls="o1" id="ob1">
+          <span>Eu preciso da consulta para o desafio funcionar?</span>
+          <svg class="faq__c" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </button></h3>
+        <div class="faq__a" id="o1" role="region" aria-labelledby="ob1"><p>Não. O desafio é completo no que ele promete, que é levantar a Fundação. Eu não vendo produto pela metade. A consulta serve para quem quer fazer isso com investigação por trás, ou para quem já desconfia que tem algo hormonal.</p></div>
+      </div>
+
+      <div class="faq__item" data-aos="fade-up" data-aos-delay="60">
+        <h3><button class="faq__q" type="button" aria-expanded="false" aria-controls="o2" id="ob2">
+          <span>Não é melhor fazer o desafio primeiro e depois marcar?</span>
+          <svg class="faq__c" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </button></h3>
+        <div class="faq__a" id="o2" role="region" aria-labelledby="ob2"><p>Dá certo dos dois jeitos, e por isso o abatimento não expira. Só que se você tem hormônio fora, os 21 dias vão render menos do que renderiam, e você só vai saber disso no fim. Investigar antes é o mesmo caminho com menos tempo perdido.</p></div>
+      </div>
+
+      <div class="faq__item" data-aos="fade-up" data-aos-delay="120">
+        <h3><button class="faq__q" type="button" aria-expanded="false" aria-controls="o3" id="ob3">
+          <span>Acabei de pagar. Isso aqui é outra venda?</span>
+          <svg class="faq__c" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </button></h3>
+        <div class="faq__a" id="o3" role="region" aria-labelledby="ob3"><p>É. E eu prefiro te dizer isso na cara do que fingir que é conteúdo. Você não precisa comprar nada agora, o que você pagou já está no seu e-mail. Isso aqui é para quem quer ir mais rápido.</p></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ BLOCO 11: FECHAMENTO ============
+     Arquétipo: Single Focus. Constraints: Dark Mode + Gradiente Radial + Pulse Loop.
+     Fecha escuro, espelhando o fim da página de vendas. Um CTA, nada competindo. -->
+<section class="fecho" aria-labelledby="fecho-t">
+  <div class="col col--estreita">
+
+    <h2 class="fecho__t" id="fecho-t" data-aos="fade-up">
+      A tarefa de hoje leva 15 minutos. A conversa sobre a consulta leva menos.
+    </h2>
+
+    <div class="fecho__txt" data-aos="fade-up" data-aos-delay="100">
+      <p>Faz a tarefa 1 agora, que é o que muda o seu resultado nos próximos 21 dias.</p>
+      <p>
+        E se quiser fazer isso com exame na mão, chama a minha equipe.
+        Ela te explica como funciona, quanto custa com o abatimento e como fica a agenda.
+      </p>
+    </div>
+
+    <div data-aos="fade-up" data-aos-delay="180">
+      <a class="btn btn--grande" href="https://wa.me/5511930732424?text=Oi%21%20Acabei%20de%20comprar%20o%20Desafio%2021%20Dias%20e%20quero%20saber%20sobre%20a%20consulta%20com%20o%20Dr.%20C%C3%A1ssio%2C%20com%20o%20abatimento%20dos%20R%24%2047." target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" width="19" height="19" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.86 9.86 0 004.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0012.04 2zm0 18.15h-.01a8.2 8.2 0 01-4.18-1.15l-.3-.18-3.11.82.83-3.04-.2-.31a8.18 8.18 0 01-1.25-4.38c0-4.54 3.7-8.24 8.24-8.24 2.2 0 4.27.86 5.83 2.42a8.19 8.19 0 012.41 5.83c0 4.54-3.7 8.23-8.26 8.23zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.25-.64.81-.79.98-.14.16-.29.18-.54.06-.25-.13-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.51.11-.11.25-.29.37-.43.12-.15.16-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.23.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.17-.47-.29z"/></svg>
+        Falar com a equipe no WhatsApp
+      </a>
+      <p class="fecho__micro">Atendimento presencial em São Paulo e online para todo o Brasil.</p>
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+<footer class="rodape">
+  <div class="col rodape__grid">
+    <img class="rodape__logo" src="/.netlify/images?url=/images/logo-cassio.png&w=200&q=90" alt="" width="40" height="48" loading="lazy" decoding="async">
+    <div>
+      <p class="rodape__id">Dr. Cássio Siqueira. Médico, CRM SP 233647.<br>Atendimento presencial e online para todo o Brasil.</p>
+      <p class="rodape__disc">Conteúdo informativo. As informações apresentadas aqui não substituem diagnóstico, consulta ou acompanhamento médico. Resultados variam de pessoa para pessoa e dependem de avaliação clínica individual.</p>
+      <!-- Links legais fora do ar de propósito: /politica-de-privacidade/ e /termos-de-uso/
+           ainda não existem neste site e dariam 404. Reinserir quando as páginas subirem. -->
+    </div>
+  </div>
+</footer>
 
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-<script src="/obrigado/script.js?v=1"></script>
+<script src="/obrigado/script.js?v=2"></script>
 </body>
 </html>
